@@ -7,7 +7,6 @@ class Section:
         self.nom=nom
 
 class CV:
-    
 
     def __init__(self,sections):
         self.liste_sections=sections
