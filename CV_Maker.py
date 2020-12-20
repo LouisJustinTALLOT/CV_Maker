@@ -60,4 +60,13 @@ class Section:
 
 class CV:
 
+    def __init__(self):
+        self.liste_sections = []
+        self.nouvelle_section()
+
+    def nouvelle_section(self):
+        self.liste_sections.append(Section())
+    
+
+
 main()
