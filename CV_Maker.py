@@ -43,8 +43,20 @@ class Item:
 
 class Section:
     
-    def __init__(self,nom):
-        self.nom=nom
+    def __init__(self):
+        self.liste_items = []
+        self.nouveau()
+
+    def nouveau(self):
+        self.nom = input("Nom de la section : ")
+        self.liste_items.append(Item())
+
+
+    def ajouter_item(self):
+        self.liste_items.append(Item())
+
+    def __repr__(self) -> str:
+        return f"[Section {self.nom} "+" ".join((repr(i) for i in self.liste_items))+"]"
 
 class CV:
 
