@@ -11,10 +11,10 @@ def main():
         mon_cv = CV()
         sauvegarde_JSON(mon_cv)
 
-def sauvegarde_JSON(cv):
+def sauvegarde_JSON(cv, nom_fichier="CV.json"):
     # jsonstr = json.dumps(cv.__dict__)
     jsonstr = jsonpickle.encode(cv, indent=4)
-    with open("CV.json", 'w', encoding='utf8') as file:
+    with open(nom_fichier, 'w', encoding='utf8') as file:
         file.write(jsonstr)
 
 def load_JSON(fichier):
