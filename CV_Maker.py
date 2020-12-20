@@ -58,12 +58,33 @@ class CV:
     def nouvelle_section(self):
         self.liste_sections.append(Section())
     
+def mainloop(cv:CV, lieu='main'):
+    if lieu ==  'main':
+        while True :
+            key = input("q : quitter, s : new section : ")
+            if not key :
+                pass
+            elif key[0].lower() == 'q' :
+                return
+            elif key[0].lower() == 's' :
+                cv.nouvelle_section()
+                mainloop(cv, 'section')
+
+
+    elif lieu == 'section':
+        while True : #TODO
+            pass
+
+            
+        
+
 
 def main():
     try :
         mon_cv = load_JSON('CV_1.json')
         # print('here')
         # print(mon_cv.liste_sections)
+        mainloop(mon_cv)
         sauvegarde_JSON(mon_cv)
     except:
         # print("là")
