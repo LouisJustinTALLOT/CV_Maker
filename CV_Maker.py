@@ -17,6 +17,12 @@ def sauvegarde_JSON(cv):
     with open("CV.json", 'w', encoding='utf8') as file:
         file.write(jsonstr)
 
+def load_JSON(fichier):
+    with open(fichier, 'r', encoding='utf8') as file :
+        fichier = file.readlines()
+        jsonstr = "\n".join(fichier)
+
+    return jsonpickle.decode(jsonstr)
 class Section:
     
     def __init__(self,nom):
