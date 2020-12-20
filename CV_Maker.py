@@ -1,6 +1,16 @@
 # import json
 import jsonpickle
 
+def main():
+    try :
+        mon_cv = load_JSON('CV_1.json')
+        print('here')
+        print(mon_cv.liste_sections)
+    except:
+        print("là")
+        mon_cv = CV()
+        sauvegarde_JSON(mon_cv)
+
 
 class Section:
     
@@ -9,5 +19,4 @@ class Section:
 
 class CV:
 
-    def __init__(self,sections):
-        self.liste_sections=sections
+main()
