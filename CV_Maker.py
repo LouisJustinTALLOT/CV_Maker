@@ -23,6 +23,24 @@ def load_JSON(fichier):
         jsonstr = "\n".join(fichier)
 
     return jsonpickle.decode(jsonstr)
+
+
+class Item:
+    def __init__(self):
+        self.nouveau()
+
+
+    def nouveau(self):
+        self.titre = input("Titre: ")
+        self.organisme = input("Organisme : ")
+        self.date_debut = input("Date de début (JJ/MM/AAAA) : ")
+        self.date_fin = input("Date de fin ou in progress : ")
+        self.logo = input("Nom du fichier logo : ")
+        self.url = input("Url éventuelle : ")
+
+    def __repr__(self):
+        return f"Item {self.titre}"
+
 class Section:
     
     def __init__(self,nom):
