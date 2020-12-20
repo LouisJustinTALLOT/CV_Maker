@@ -1,15 +1,6 @@
 # import json
 import jsonpickle
 
-def main():
-    try :
-        mon_cv = load_JSON('CV_1.json')
-        print('here')
-        print(mon_cv.liste_sections)
-    except:
-        print("là")
-        mon_cv = CV()
-        sauvegarde_JSON(mon_cv)
 
 def sauvegarde_JSON(cv, nom_fichier="CV.json"):
     # jsonstr = json.dumps(cv.__dict__)
@@ -67,6 +58,17 @@ class CV:
     def nouvelle_section(self):
         self.liste_sections.append(Section())
     
+
+def main():
+    try :
+        mon_cv = load_JSON('CV_1.json')
+        # print('here')
+        # print(mon_cv.liste_sections)
+        sauvegarde_JSON(mon_cv)
+    except:
+        # print("là")
+        mon_cv = CV()
+        sauvegarde_JSON(mon_cv)
 
 
 main()
