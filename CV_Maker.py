@@ -41,7 +41,7 @@ class Section:
 
     def nouveau(self):
         self.nom = input("Nom de la section : ")
-        self.liste_items.append(Item())
+        # self.liste_items.append(Item())
 
 
     def ajouter_item(self):
