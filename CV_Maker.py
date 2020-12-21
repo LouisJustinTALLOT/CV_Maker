@@ -46,6 +46,7 @@ class Section:
 
     def ajouter_item(self):
         self.liste_items.append(Item())
+        self.nb_items += 1
 
     def __repr__(self) -> str:
         return f"[Section {self.nom} "+" ".join((repr(i) for i in self.liste_items))+"]"
