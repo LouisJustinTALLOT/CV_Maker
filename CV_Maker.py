@@ -36,6 +36,7 @@ class Section:
     
     def __init__(self):
         self.liste_items = []
+        self.nb_items = 0
         self.nouveau()
 
     def nouveau(self):
