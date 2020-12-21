@@ -55,11 +55,12 @@ class CV:
 
     def __init__(self):
         self.liste_sections = []
-        self.nouvelle_section()
+        self.nb_sections = 0
 
     def nouvelle_section(self):
         self.liste_sections.append(Section())
-    
+        self.nb_sections += 1
+
 def mainloop(cv:CV, lieu='main'):
     if lieu ==  'main':
         while True :
