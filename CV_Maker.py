@@ -82,6 +82,11 @@ class Section:
         self.liste_items.append(Item())
         self.nb_items += 1
 
+    def afficher(self):
+        print(self.nom)
+        for i, item in enumerate(self.liste_items):
+            print(f"{i} {item.nom}")
+
     def __repr__(self) -> str:
         return f"[Section {self.nom} "+" ".join((repr(i) for i in self.liste_items))+"]"
 
