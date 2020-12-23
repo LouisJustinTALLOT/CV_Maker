@@ -77,12 +77,18 @@ def mainloop(cv:CV, lieu='main', no_sec=-1, no_item=-1, new=0):
                 return
             elif key[0].lower() == 's' :
                 cv.nouvelle_section()
-                mainloop(cv, 'section')
-
-
+    
     elif lieu == 'section':
         while True : #TODO
-            pass
+            key = input("q : quitter section, s : new item : ")
+            if not key :
+                pass
+            elif key[0].lower() == 'q' :
+                return
+            elif key[0].lower() == 's' :    
+                
+                mainloop(cv, 'item',no_sec=no_sec, new=1)
+    
 
             
         
