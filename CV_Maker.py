@@ -119,7 +119,7 @@ class CV:
                 file.write(f"<h2>{sec.nom}</h2>\n")
             file.write("</body>\n</html>")
 
-def mainloop(cv:CV, lieu='main', no_sec=-1, no_item=-1, new=0):
+def mainloop(cv:CV, lieu='main', no_sec=-1, no_it=-1, new=False,modify=False):
     if lieu ==  'main':
         while True :
             key = input("q, s : new section, l: liste sec°, m: modify,p : to html: ")
