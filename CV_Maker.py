@@ -1,6 +1,13 @@
 # import json
 import jsonpickle
 
+def titre_to_nom_de_fichier(titre:str):
+    titre = titre.replace(" ", "_")
+    titre = titre.replace("é","e")
+    titre = titre.replace("è","e")
+    titre = titre.replace("ù","u")
+    titre = titre.replace("à","a")
+    return titre
 
 def sauvegarde_JSON(cv, nom_fichier="CV.json"):
     # jsonstr = json.dumps(cv.__dict__)
