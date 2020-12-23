@@ -101,6 +101,12 @@ class Section:
     def __repr__(self) -> str:
         return f"[Section {self.nom} "+" ".join((repr(i) for i in self.liste_items))+"]"
 
+    def to_html(self):
+        res = f"<h2>{self.nom}</h2>\n"
+        for it in self.liste_items :
+            res += it.to_html()
+        return res
+
 class CV:
 
     def __init__(self):
