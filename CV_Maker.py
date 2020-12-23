@@ -144,6 +144,8 @@ def mainloop(cv:CV, lieu='main', no_sec=-1, no_it=-1, new=False,modify=False):
                         break
                     elif no_sec[0].lower() == 'q':
                         break
+            elif key[0].lower() == 'p':
+                cv.to_html()
     
     elif lieu == 'section':
         if not modify:
