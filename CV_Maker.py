@@ -52,6 +52,17 @@ class Item:
         print(self.date_debut)
         print(self.date_fin)
         
+    def modifier(self):
+        for carac in [self.titre,self.organisme,self.date_debut,self.date_fin,self.logo,self.url]:
+            print(carac)
+            while True:
+                a = input("Remplacement :\n")
+                if a:
+                    carac = a
+                    break
+                else:
+                    break
+
     def __repr__(self):
         return f"Item {self.titre}"
 
