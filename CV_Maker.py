@@ -9,6 +9,16 @@ def titre_to_nom_de_fichier(titre:str):
     titre = titre.replace("à","a")
     return titre
 
+def header_html(titre='CV'):
+    res = f"""<!DOCTYPE html>
+    <meta charset="utf-8" />
+    <html lang="en">
+    <head>
+      <title>{titre}</title>
+    </head>
+    """
+    return res
+
 def sauvegarde_JSON(cv, nom_fichier="CV.json"):
     # jsonstr = json.dumps(cv.__dict__)
     jsonstr = jsonpickle.encode(cv, indent=4)
