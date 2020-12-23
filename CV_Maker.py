@@ -42,6 +42,7 @@ class Item:
     def nouveau(self):
         self.titre = input("Titre: ")
         self.organisme = input("Organisme : ")
+        self.description = input("Description :")
         self.date_debut = input("Date de début (JJ/MM/AAAA) : ")
         self.date_fin = input("Date de fin ou in progress : ")
         self.logo = input("Nom du fichier logo : ")
