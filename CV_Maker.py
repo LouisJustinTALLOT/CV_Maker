@@ -129,7 +129,7 @@ class CV:
             file.write("<body>\n")
             file.write("<h1> CV </h1>\n")
             for sec in self.liste_sections:
-                file.write(f"<h2>{sec.nom}</h2>\n")
+                file.write(sec.to_html())
             file.write("</body>\n</html>")
 
 def mainloop(cv:CV, lieu='main', no_sec=-1, no_it=-1, new=False,modify=False):
