@@ -61,7 +61,11 @@ class CV:
         self.liste_sections.append(Section())
         self.nb_sections += 1
 
-def mainloop(cv:CV, lieu='main'):
+    def afficher_sections(self):
+        for i, sec in enumerate(self.liste_sections) :
+            print(f"{i} {sec.nom}")
+
+
     if lieu ==  'main':
         while True :
             key = input("q : quitter, s : new section : ")
