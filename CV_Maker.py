@@ -89,13 +89,14 @@ class CV:
 def main():
     try :
         mon_cv = load_JSON('CV_1.json')
-        # print('here')
-        # print(mon_cv.liste_sections)
-        mainloop(mon_cv)
-        sauvegarde_JSON(mon_cv)
+
     except:
-        # print("là")
+        print("n'a pas réussi à le charger")
         mon_cv = CV()
+        mainloop(mon_cv)
+        sauvegarde_JSON(mon_cv,'CV.json')
+    else:
+        mainloop(mon_cv)
         sauvegarde_JSON(mon_cv)
 
 
