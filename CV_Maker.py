@@ -25,6 +25,19 @@ def html_head(titre='CV', format='full'):
     """
     return res
 
+def html_header(nom_image:str,format='full'):
+    res = ""
+    if format == 'full':
+        res += "<header>\n"
+        res += f"""<img src = "images/{nom_image}" style="height:200px; width:auto" />\n"""
+        res += f"""<h1>{qui_je_suis['nom']} </h1>\n"""
+        res += f"""<h2>Né le {qui_je_suis['date_naissance']}</h2>\n"""
+        res += f"""<p>{qui_je_suis['motto']}</p>\n"""
+        res += "</header>\n"
+        return res
+    else:
+        return html_header(nom_image) # à changer pour les autres styles
+
 def sauvegarde_JSON(cv, nom_fichier="CV.json"):
     # jsonstr = json.dumps(cv.__dict__)
     jsonstr = jsonpickle.encode(cv, indent=4)
