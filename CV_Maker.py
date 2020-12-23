@@ -173,13 +173,13 @@ def mainloop(cv:CV, lieu='main', no_sec=-1, no_item=-1, new=0):
 
 def main():
     try :
-        mon_cv = load_JSON('CV_1.json')
+        mon_cv = load_JSON('CV.json')
 
     except:
         print("n'a pas réussi à le charger")
         mon_cv = CV()
         mainloop(mon_cv)
-        sauvegarde_JSON(mon_cv,'CV.json')
+        sauvegarde_JSON(mon_cv,'CV_1.json')
     else:
         mainloop(mon_cv)
         sauvegarde_JSON(mon_cv)
