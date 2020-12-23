@@ -67,6 +67,7 @@ class CV:
             print(f"{i} {sec.nom}")
 
 
+def mainloop(cv:CV, lieu='main', no_sec=-1, no_item=-1, new=0):
     if lieu ==  'main':
         while True :
             key = input("q : quitter, s : new section : ")
