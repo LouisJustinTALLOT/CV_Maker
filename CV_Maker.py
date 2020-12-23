@@ -46,6 +46,12 @@ class Item:
         self.logo = input("Nom du fichier logo : ")
         self.url = input("Url éventuelle : ")
 
+    def afficher(self):
+        print(self.titre)
+        print(self.organisme)
+        print(self.date_debut)
+        print(self.date_fin)
+        
     def __repr__(self):
         return f"Item {self.titre}"
 
