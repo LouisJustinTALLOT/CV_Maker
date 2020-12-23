@@ -156,8 +156,9 @@ def mainloop(cv:CV, lieu='main', no_sec=-1, no_it=-1, new=False,modify=False):
             elif key[0].lower() == 'q' :
                 return
             elif key[0].lower() == 's' :    
-                
-                mainloop(cv, 'item',no_sec=no_sec, new=1)
+                    mainloop(cv, 'item',no_sec=no_sec, new=1)
+                elif key[0].lower() == 'l':
+                    print(cv.liste_sections[no_sec].liste_items)
                 elif key[0].lower() == 'm':
                     cv.liste_sections[no_sec].afficher_items()
                     while True : 
