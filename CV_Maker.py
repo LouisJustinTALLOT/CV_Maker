@@ -143,8 +143,9 @@ class CV:
     def to_html(self, format='normal'):
         with open("CV.html", 'w', encoding='utf8') as file:
             # file.write("""<!DOCTYPE html\n PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"\n"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">\n""")
-            file.write(header_html())
+            file.write(html_head())
             file.write("<body>\n")
+            file.write(html_header("photo_elmo.jpg"))
             file.write("<h1> CV </h1>\n")
             for sec in self.liste_sections:
                 file.write(sec.to_html())
