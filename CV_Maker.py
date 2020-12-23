@@ -56,6 +56,7 @@ class CV:
     def __init__(self):
         self.liste_sections = []
         self.nb_sections = 0
+        # self.nouvelle_section()
 
     def nouvelle_section(self):
         self.liste_sections.append(Section())
