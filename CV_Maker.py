@@ -68,6 +68,11 @@ class Item:
     def __repr__(self):
         return f"Item {self.titre}"
 
+    def to_html(self):   # à modifier pour changer ce qu'on affiche
+        res = f"<h3>{self.titre}</h3>\n"
+
+        return res
+
 class Section:
     
     def __init__(self):
