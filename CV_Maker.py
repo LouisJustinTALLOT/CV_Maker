@@ -146,6 +146,7 @@ def mainloop(cv:CV, lieu='main', no_sec=-1, no_item=-1, new=0):
                         break
     
     elif lieu == 'section':
+        if not modify:
         while True : #TODO
             key = input("q : quitter section, s : new item : ")
             if not key :
@@ -155,17 +156,33 @@ def mainloop(cv:CV, lieu='main', no_sec=-1, no_item=-1, new=0):
             elif key[0].lower() == 's' :    
                 
                 mainloop(cv, 'item',no_sec=no_sec, new=1)
+                elif key[0].lower() == 'm':
+                    cv.liste_sections[no_sec].afficher_items()
+                    while True : 
+                        no_item = input("Quel numéro d'item ? " )
+                        if not no_item:
+                            pass
+                        elif int(no_item) < cv.nb_sections[no_sec].nb_items and int(no_item) >= 0 :
+                            mainloop(cv, lieu='item',no_sec=no_sec,no_it=int(no_item), modify=True)
+                            break
+                        elif no_item[0].lower() == 'q':
+                            break
+                    
     
     elif lieu == 'item':
         if new:
             cv.liste_sections[no_sec].ajouter_item()
-        while True :
-            key = input("q : quitter item")
+            return
 
-            if not key:
-                pass
-            elif key[0] == 'q':
-                return
+        if modify:
+            cv.liste_sections[no_sec].liste_items[no_item].modifier()
+        # while True :
+        #     key = input("q : quitter item")
+
+        #     if not key:
+        #         pass
+        #     elif key[0] == 'q':
+        #         return
 
             
         
