@@ -89,6 +89,16 @@ def mainloop(cv:CV, lieu='main', no_sec=-1, no_item=-1, new=0):
                 
                 mainloop(cv, 'item',no_sec=no_sec, new=1)
     
+    elif lieu == 'item':
+        if new:
+            cv.liste_sections[no_sec].ajouter_item()
+        while True :
+            key = input("q : quitter item")
+
+            if not key:
+                pass
+            elif key[0] == 'q':
+                return
 
             
         
