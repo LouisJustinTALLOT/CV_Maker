@@ -129,33 +129,32 @@ def mainloop(cv:CV, lieu='main', no_sec=-1, no_it=-1, new=False,modify=False):
                 return
             elif key[0].lower() == 's' :
                 cv.nouvelle_section()
-                print("là")
                 mainloop(cv, lieu='section', no_sec=cv.nb_sections-1)
             elif key[0].lower() == 'l':
                 cv.afficher_sections()
             elif key[0].lower() == 'm':
                 cv.afficher_sections()
                 while True : # ne va pas du tout
-                    no_sec = input("Quel numéro de section ? " )
-                    if not no_sec:
+                    no_section = input("Quel numéro de section ? " )
+                    if not no_section:
                         pass
-                    elif int(no_sec) < cv.nb_sections and int(no_sec) >= 0 :
-                        mainloop(cv,'section',no_sec=no_sec)
+                    elif int(no_section) < cv.nb_sections and int(no_section) >= 0 :
+                        mainloop(cv, lieu='section',no_sec=int(no_section))
                         break
-                    elif no_sec[0].lower() == 'q':
+                    elif no_section[0].lower() == 'q':
                         break
             elif key[0].lower() == 'p':
                 cv.to_html()
     
     elif lieu == 'section':
         if not modify:
-        while True : #TODO
-            key = input("q : quitter section, s : new item : ")
-            if not key :
-                pass
-            elif key[0].lower() == 'q' :
-                return
-            elif key[0].lower() == 's' :    
+            while True : #TODO
+                key = input("q : quitter section,l: list item s : new item , m odifier item: ")
+                if not key :
+                    pass
+                elif key[0].lower() == 'q' :
+                    return
+                elif key[0].lower() == 's' :    
                     mainloop(cv, 'item',no_sec=no_sec, new=1)
                 elif key[0].lower() == 'l':
                     print(cv.liste_sections[no_sec].liste_items)
@@ -171,6 +170,10 @@ def mainloop(cv:CV, lieu='main', no_sec=-1, no_it=-1, new=False,modify=False):
                         elif no_item[0].lower() == 'q':
                             break
                     
+        else:
+            # TODO 
+            pass
+
     
     elif lieu == 'item':
         if new:
