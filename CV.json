@@ -3,33 +3,22 @@
     "liste_sections": [
         {
             "py/object": "__main__.Section",
-            "liste_items": [
-                {
-                    "py/object": "__main__.Item",
-                    "titre": "qerg",
-                    "organisme": "inria",
-                    "date_debut": "03/43/3030",
-                    "date_fin": "in progress",
-                    "logo": "",
-                    "url": "fff.gma.co"
-                }
-            ],
-            "nom": "qilegur"
+            "liste_items": [],
+            "nb_items": 0,
+            "nom": "Parcours scolaire"
         },
         {
             "py/object": "__main__.Section",
-            "liste_items": [
-                {
-                    "py/object": "__main__.Item",
-                    "titre": "dd",
-                    "organisme": "ssd",
-                    "date_debut": "sd",
-                    "date_fin": "sd",
-                    "logo": "sd",
-                    "url": "s"
-                }
-            ],
-            "nom": "LKJ"
+            "liste_items": [],
+            "nb_items": 0,
+            "nom": "Concours"
+        },
+        {
+            "py/object": "__main__.Section",
+            "liste_items": [],
+            "nb_items": 0,
+            "nom": "MOOCs"
         }
-    ]
+    ],
+    "nb_sections": 3
 }
