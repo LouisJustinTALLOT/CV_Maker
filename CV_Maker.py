@@ -77,6 +77,21 @@ def mainloop(cv:CV, lieu='main', no_sec=-1, no_item=-1, new=0):
                 return
             elif key[0].lower() == 's' :
                 cv.nouvelle_section()
+                print("là")
+                mainloop(cv, lieu='section', no_sec=cv.nb_sections-1)
+            elif key[0].lower() == 'l':
+                cv.afficher_sections()
+            elif key[0].lower() == 'm':
+                cv.afficher_sections()
+                while True : # ne va pas du tout
+                    no_sec = input("Quel numéro de section ? " )
+                    if not no_sec:
+                        pass
+                    elif int(no_sec) < cv.nb_sections and int(no_sec) >= 0 :
+                        mainloop(cv,'section',no_sec=no_sec)
+                        break
+                    elif no_sec[0].lower() == 'q':
+                        break
     
     elif lieu == 'section':
         while True : #TODO
