@@ -14,7 +14,7 @@ def titre_to_nom_de_fichier(titre:str):
     titre = titre.replace("à","a")
     return titre
 
-def header_html(titre='CV', format='full'):
+def html_head(titre='CV', format='full'):
     res = f"""<!DOCTYPE html>
     <meta charset="utf-8" />
     <html lang="en">
