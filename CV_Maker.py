@@ -109,6 +109,15 @@ class CV:
         for i, sec in enumerate(self.liste_sections) :
             print(f"{i} {sec.nom}")
 
+    def to_html(self, format='normal'):
+        with open("CV.html", 'w', encoding='utf8') as file:
+            # file.write("""<!DOCTYPE html\n PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"\n"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">\n""")
+            file.write(header_html())
+            file.write("<body>\n")
+            file.write("<h1> CV </h1>\n")
+            for sec in self.liste_sections:
+                file.write(f"<h2>{sec.nom}</h2>\n")
+            file.write("</body>\n</html>")
 
 def mainloop(cv:CV, lieu='main', no_sec=-1, no_item=-1, new=0):
     if lieu ==  'main':
