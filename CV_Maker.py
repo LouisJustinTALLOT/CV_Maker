@@ -1,6 +1,11 @@
 # import json
 import jsonpickle
 
+qui_je_suis = {'nom' : "Elmo",
+               'date_naissance' : "01/01/1970",
+                'motto' : 'Voici ma devise'
+}
+
 def titre_to_nom_de_fichier(titre:str):
     titre = titre.replace(" ", "_")
     titre = titre.replace("é","e")
