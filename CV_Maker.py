@@ -140,6 +140,19 @@ class CV:
         for i, sec in enumerate(self.liste_sections) :
             print(f"{i} {sec.nom}")
 
+    def html_header(self,nom_image:str,format='full'):
+        res = ""
+        if format == 'full':
+            res += "<header>\n"
+            res += f"""<img src = "images/{nom_image}" style="height:200px; width:auto" />\n"""
+            res += f"""<h1>{self.qui_je_suis['nom']} </h1>\n"""
+            res += f"""<h2>Né le {self.qui_je_suis['date_naissance']}</h2>\n"""
+            res += f"""<p>{self.qui_je_suis['motto']}</p>\n"""
+            res += "</header>\n"
+            return res
+        else:
+            return self.html_header(nom_image) # à changer pour les autres styles
+
     def to_html(self, format='normal'):
         with open("CV.html", 'w', encoding='utf8') as file:
             # file.write("""<!DOCTYPE html\n PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"\n"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">\n""")
