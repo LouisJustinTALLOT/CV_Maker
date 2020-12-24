@@ -3,10 +3,11 @@ import jsonpickle
 
 def titre_to_nom_de_fichier(titre:str):
     titre = titre.replace(" ", "_")
-    titre = titre.replace("é","e")
-    titre = titre.replace("è","e")
-    titre = titre.replace("ù","u")
-    titre = titre.replace("à","a")
+    titre = titre.replace("é", "e")
+    titre = titre.replace("è", "e")
+    titre = titre.replace("ù", "u")
+    titre = titre.replace("à", "a")
+    titre = titre.replace("ç", "c")
     return titre
 
 def html_head(titre='CV', format='full'):
