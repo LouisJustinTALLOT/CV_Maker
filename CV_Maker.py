@@ -25,18 +25,6 @@ def html_head(titre='CV', format='full'):
     """
     return res
 
-def html_header(nom_image:str,format='full'):
-    res = ""
-    if format == 'full':
-        res += "<header>\n"
-        res += f"""<img src = "images/{nom_image}" style="height:200px; width:auto" />\n"""
-        res += f"""<h1>{qui_je_suis['nom']} </h1>\n"""
-        res += f"""<h2>Né le {qui_je_suis['date_naissance']}</h2>\n"""
-        res += f"""<p>{qui_je_suis['motto']}</p>\n"""
-        res += "</header>\n"
-        return res
-    else:
-        return html_header(nom_image) # à changer pour les autres styles
 
 def sauvegarde_JSON(cv, nom_fichier="CV.json"):
     # jsonstr = json.dumps(cv.__dict__)
@@ -158,7 +146,7 @@ class CV:
             # file.write("""<!DOCTYPE html\n PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"\n"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">\n""")
             file.write(html_head())
             file.write("<body>\n")
-            file.write(html_header("photo_elmo.jpg"))
+            file.write(self.html_header("photo_elmo.jpg"))
             file.write("<h1> CV </h1>\n")
             for sec in self.liste_sections:
                 file.write(sec.to_html())
