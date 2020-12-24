@@ -214,7 +214,7 @@ def mainloop(cv:CV, lieu='main', no_sec=-1, no_it=-1, new=False,modify=False):
             return
 
         if modify:
-            cv.liste_sections[no_sec].liste_items[no_item].modifier()
+            cv.liste_sections[no_sec].liste_items[no_it].modifier()
         # while True :
         #     key = input("q : quitter item")
 
