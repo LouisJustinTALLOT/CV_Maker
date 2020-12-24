@@ -32,8 +32,6 @@ def load_JSON(fichier):
         fichier = file.readlines()
         jsonstr = "\n".join(fichier)
 
-    return jsonpickle.decode(jsonstr)
-
 
 class Item:
     def __init__(self):
@@ -210,7 +208,6 @@ def mainloop(cv:CV, lieu='main', no_sec=-1, no_it=-1, new=False,modify=False):
             # TODO 
             pass
 
-    
     elif lieu == 'item':
         if new:
             cv.liste_sections[no_sec].ajouter_item()
@@ -225,10 +222,6 @@ def mainloop(cv:CV, lieu='main', no_sec=-1, no_it=-1, new=False,modify=False):
         #         pass
         #     elif key[0] == 'q':
         #         return
-
-            
-        
-
 
 def main():
     try :
