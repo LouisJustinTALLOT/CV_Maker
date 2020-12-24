@@ -23,14 +23,18 @@ def html_head(titre='CV', format='full'):
 
 def sauvegarde_JSON(cv, nom_fichier="CV.json"):
     # jsonstr = json.dumps(cv.__dict__)
+    cv.write_csv() # on écrit les CSV pour être raccord
     jsonstr = jsonpickle.encode(cv, indent=1) #et on sauve en JSON
     with open(nom_fichier, 'w', encoding='utf8') as file:
-        file.write(jsonstr)
+        file.write(jsonstr) 
 
 def load_JSON(fichier):
     with open(fichier, 'r', encoding='utf8') as file :
         fichier = file.readlines()
         jsonstr = "\n".join(fichier)
+    cv = jsonpickle.decode(jsonstr) # on récupère le CV du JSON
+    cv.load_csv() # et on compare avec les CSV 
+    return cv
 
 
 class Item:
