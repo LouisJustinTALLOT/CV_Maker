@@ -23,7 +23,7 @@ def html_head(titre='CV', format='full'):
 
 def sauvegarde_JSON(cv, nom_fichier="CV.json"):
     # jsonstr = json.dumps(cv.__dict__)
-    jsonstr = jsonpickle.encode(cv, indent=4)
+    jsonstr = jsonpickle.encode(cv, indent=1) #et on sauve en JSON
     with open(nom_fichier, 'w', encoding='utf8') as file:
         file.write(jsonstr)
 
