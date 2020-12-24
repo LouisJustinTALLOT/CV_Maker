@@ -1,11 +1,6 @@
 # import json
 import jsonpickle
 
-qui_je_suis = {'nom' : "Elmo",
-               'date_naissance' : "01/01/1970",
-                'motto' : 'Voici ma devise'
-}
-
 def titre_to_nom_de_fichier(titre:str):
     titre = titre.replace(" ", "_")
     titre = titre.replace("é","e")
@@ -118,6 +113,14 @@ class CV:
     def __init__(self):
         self.liste_sections = []
         self.nb_sections = 0
+        self.qui_je_suis = {'nom' : "Elmo",
+               'date_naissance' : "01/01/1970",
+                'motto' : 'Voici ma devise'
+        }
+
+        self.qui_je_suis["nom"] = input("Votre nom: ")
+        self.qui_je_suis["date_naissance"] = input("Votre date de naissance: ")
+        self.qui_je_suis["motto"] = input("Votre motto")
         # self.nouvelle_section()
 
     def nouvelle_section(self):
