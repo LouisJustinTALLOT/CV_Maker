@@ -7,9 +7,9 @@ body
 
 header
 {
-    background-color: rgba(0, 0, 255, 0.685);
-    color : black;
-    margin-bottom: 1em;
+    background-color: rgba(0, 140, 255, 0.336);
+    color : rgb(0, 0, 255);
+    /* margin-bottom: 1em;   */
     display: block;
 }
 }
