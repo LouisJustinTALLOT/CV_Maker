@@ -39,3 +39,11 @@ header
     border-bottom: 1px solid black;
 }
 
+#toutes_les_sections
+{
+    /* margin-top: 3cm; */
+    display: block;
+    clear: both;
+    float: bottom;
+}
+
