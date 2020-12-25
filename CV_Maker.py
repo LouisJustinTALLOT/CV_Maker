@@ -244,7 +244,8 @@ def main():
     try :
         mon_cv = load_JSON('CV.json')
 
-    except:
+    except Exception as e:
+        print(e)
         print("n'a pas réussi à le charger")
         mon_cv = CV()
         mainloop(mon_cv)
