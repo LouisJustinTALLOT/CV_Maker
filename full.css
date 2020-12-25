@@ -4,4 +4,12 @@ body
     color : black;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
+header
+{
+    background-color: rgba(0, 0, 255, 0.685);
+    color : black;
+    margin-bottom: 1em;
+    display: block;
+}
 }
