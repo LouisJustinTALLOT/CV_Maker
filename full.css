@@ -12,4 +12,14 @@ header
     /* margin-bottom: 1em;   */
     display: block;
 }
+
+#profile_picture
+{
+    height:200px;
+    width:auto;
+    display: inline-block;
+    padding-left: 1em;
+    padding-right: 1em;
+}
+
 }
