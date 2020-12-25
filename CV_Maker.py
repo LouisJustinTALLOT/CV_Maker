@@ -93,6 +93,7 @@ class Section:
     
     def __init__(self):
         self.liste_items = []
+        self.liste_items_ignores = []
         self.nb_items = 0
         self.nouveau()
 
@@ -101,8 +102,17 @@ class Section:
         # self.liste_items.append(Item())
 
 
-    def ajouter_item(self):
-        self.liste_items.append(Item())
+    def ajouter_item(self, ignore=False):
+        if ignore:
+            self.liste_items_ignores.append(Item(self.nb_items))
+            self.dict_etat_items[self.nb_items] = "ignore"
+            self.dict_tous_items[self.nb_items] = self.liste_items_ignores[-1]
+            
+        else:
+            self.liste_items.append(Item(self.nb_items))
+            self.dict_etat_items[self.nb_items] = "dedans"
+            self.dict_tous_items[self.nb_items] = self.liste_items[-1]
+        
         self.nb_items += 1
 
     def afficher(self):
