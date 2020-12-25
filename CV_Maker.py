@@ -40,8 +40,19 @@ def load_JSON(fichier):
 
 
 class Item:
-    def __init__(self):
-        self.nouveau()
+    def __init__(self, num,t=None,org=None, des=None, dd=None, df=None, logo=None,url=None):
+        
+        self.numero = num
+        if t:
+            self.titre = t
+            self.organisme = org
+            self.description = des
+            self.date_debut = dd
+            self.date_fin = df
+            self.logo = logo
+            self.url =url
+        else:
+            self.nouveau()
 
 
     def nouveau(self):
