@@ -85,7 +85,7 @@ class Item:
         return f"Item {self.titre}"
 
     def to_html(self):   # à modifier pour changer ce qu'on affiche
-        res = f"<h3>{self.titre}</h3>\n"
+        res = f"""<h2 class="titre_item">{self.titre}</h2>\n"""
 
         return res
 
@@ -128,7 +128,8 @@ class Section:
         return f"[Section {self.nom} "+" ".join((repr(i) for i in self.liste_items))+"]"
 
     def to_html(self):
-        res = f"<h2>{self.nom}</h2>\n"
+        res = f"""<h1 class="debut_de_section">{self.nom}</h1>\n"""
+        it:Item
         for it in self.liste_items :
             res += it.to_html()
         return res
@@ -248,10 +249,12 @@ class CV:
         res = ""
         if format == 'full':
             res += "<header>\n"
-            res += f"""<img src = "images/{nom_image}" style="height:200px; width:auto" />\n"""
-            res += f"""<h1>{self.qui_je_suis['nom']} </h1>\n"""
-            res += f"""<h2>Né le {self.qui_je_suis['date_naissance']}</h2>\n"""
-            res += f"""<p>{self.qui_je_suis['motto']}</p>\n"""
+            res += f"""  <img src = "images/{nom_image}" id="profile_picture" />\n"""
+            res += """  <section id="header_sauf_photo">\n"""
+            res += f"""    <h1 id="header_nom">{self.qui_je_suis['nom']} </h1>\n"""
+            res += f"""    <h2>Né le {self.qui_je_suis['date_naissance']}</h2>\n"""
+            res += f"""    <p>{self.qui_je_suis['motto']}</p>\n"""
+            res += """  </section>\n"""
             res += "</header>\n"
             return res
         else:
@@ -263,9 +266,12 @@ class CV:
             file.write(html_head())
             file.write("<body>\n")
             file.write(self.html_header("photo_elmo.jpg"))
-            file.write("<h1> CV </h1>\n")
+            # file.write("<h1> CV </h1>\n")
+            file.write("""<section id="toutes_les_sections">\n""")
+            sec:Section
             for sec in self.liste_sections:
                 file.write(sec.to_html())
+            file.write("</section>")
             file.write("</body>\n</html>")
 
 def mainloop(cv:CV, lieu='main', no_sec=-1, no_it=-1, new=False,modify=False):
