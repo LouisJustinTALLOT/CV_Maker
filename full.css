@@ -22,4 +22,7 @@ header
     padding-right: 1em;
 }
 
+#header_sauf_photo
+{
+    display : inline-block;
 }
