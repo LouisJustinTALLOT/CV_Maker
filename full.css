@@ -26,3 +26,10 @@ header
 {
     display : inline-block;
 }
+
+#header_nom
+{
+    font-size: 4em;
+    /* text-align: right; */
+
+}
