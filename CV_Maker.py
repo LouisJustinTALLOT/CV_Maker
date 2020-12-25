@@ -94,6 +94,8 @@ class Section:
     def __init__(self):
         self.liste_items = []
         self.liste_items_ignores = []
+        self.dict_etat_items = {}
+        self.dict_tous_items = {}
         self.nb_items = 0
         self.nouveau()
 
