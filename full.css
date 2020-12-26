@@ -3,6 +3,8 @@ body
     background-color: white;
     color : black;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    width: 21cm;
+    padding: 0cm;
 }
 
 header
@@ -11,6 +13,7 @@ header
     color : rgb(0, 0, 255);
     /* margin-bottom: 1em;   */
     display: block;
+    width : 21cm;
 }
 
 #profile_picture
