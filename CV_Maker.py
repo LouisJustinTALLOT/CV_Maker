@@ -172,8 +172,6 @@ class CV:
             
             with open(f"sections/{titre_to_nom_de_fichier(sec.nom)}.csv", 'w', encoding='utf8') as file :
                 file.write(f"{sec.nom}\n")#TODO 
-                    file.write(f"{sec.nom}\n")#TODO 
-                file.write(f"{sec.nom}\n")#TODO 
                 file.write("ignore;numero;titre;organisme;description;date_debut;date_fin;logo;url\n")
                 print(sec.nb_items, len(sec.dict_tous_items))
                 for i in range(sec.nb_items):
