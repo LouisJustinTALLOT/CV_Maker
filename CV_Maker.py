@@ -140,30 +140,25 @@ class CV:
         for i, sec in enumerate(self.liste_sections) :
             print(f"{i} {sec.nom}")
 
-    def write_csv(self):
-        """on va sauver le contenu du CV dans des CSV avant de sauver en JSON"""
+    def save(self):
+        """on va sauver le contenu du CV dans des CSV"""
         with open("sections/infos_personnelles.csv",'w',encoding='utf8') as file:
-            for key in self.qui_je_suis.keys():
-                file.write(f"{key};{self.qui_je_suis[key]}\n")
+            for key, valeur in self.qui_je_suis.items():
+                file.write(f"{key};{valeur}\n")
 
-        date_ref = os.path.getmtime("CV.json")
-        for sec in self.liste_sections : #type: Section
-            fichier = f"sections/{titre_to_nom_de_fichier(sec.nom)}.csv"
-            # if fichier not in os.listdir("sections") or os.path.getmtime(fichier)>date_ref:
+        sec:Section
+        for sec in self.liste_sections :
+            # fichier = f"sections/{titre_to_nom_de_fichier(sec.nom)}.csv"
             
             with open(f"sections/{titre_to_nom_de_fichier(sec.nom)}.csv", 'w', encoding='utf8') as file :
-                file.write(f"{sec.nom}\n")#TODO 
+                file.write(f"{sec.nom};{sec.ignore}\n")#TODO 
                 file.write("ignore;numero;titre;organisme;description;date_debut;date_fin;logo;url\n")
-                print(sec.nb_items, len(sec.dict_tous_items))
-                for i in range(sec.nb_items):
-                    try: #Problème ICI # TODO # WIP
-                        it = sec.dict_tous_items[i]
-                        if sec.dict_etat_items[i] == "ignore":
-                            file.write(f"oui;{it.numero};{it.titre};{it.organisme};{it.description};{it.date_debut};{it.date_fin};{it.logo};{it.url}\n")
-                        else : 
-                            file.write(f"non;{it.numero};{it.titre};{it.organisme};{it.description};{it.date_debut};{it.date_fin};{it.logo};{it.url}\n")
-                    except:
-                        pass
+                it : Item
+                for j, it in enumerate(sec.liste_items):
+                    if it.ignore:
+                        file.write(f"oui;{it.numero};{it.titre};{it.organisme};{it.description};{it.date_debut};{it.date_fin};{it.logo};{it.url}\n")
+                    else : 
+                        file.write(f"non;{it.numero};{it.titre};{it.organisme};{it.description};{it.date_debut};{it.date_fin};{it.logo};{it.url}\n")
 
     def load_csv(self):
         liste_des_sections = os.listdir("sections")
