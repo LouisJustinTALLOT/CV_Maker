@@ -181,7 +181,6 @@ class CV:
                         sec.ignore = False
                     for ligne_it in lignes_fichier[2:]:
                             if ligne_it and len(ligne_it)>1:
-                                print("ici",sec.nb_items)
                                 # on parcourt les items de la section
                                 ligne_it = ligne_it[:-1]
                                 ignore,no,titre,organisme,description,date_debut,date_fin,logo,url = ligne_it.split(";")
