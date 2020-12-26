@@ -172,6 +172,10 @@ class CV:
                     sec = Section()
                     ligne_titre = lignes_fichier[0][:-1]
                     sec.nom, sec.ignore = ligne_titre.split(";")[:2]
+                    if sec.ignore == 'True':
+                        sec.ignore = True
+                    else: 
+                        sec.ignore = False
                     for ligne_it in lignes_fichier[2:]:
                             if ligne_it and len(ligne_it)>1:
                                 print("ici",sec.nb_items)
