@@ -1,5 +1,3 @@
-# import json
-import jsonpickle
 import os
 
 def titre_to_nom_de_fichier(titre:str):
