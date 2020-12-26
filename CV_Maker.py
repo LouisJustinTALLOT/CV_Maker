@@ -211,11 +211,20 @@ class CV:
         else:
             return self.html_header(nom_image) # à changer pour les autres styles
 
+    def html_footer(self):
+        res = "<footer>\n"
+        res += """    <p>Ce CV est le produit du projet """
+        res += f"""<a href="github.com/LouisJustinTALLOT/CV_Maker" target="_blank"><img src="images/logo_github.png" class="logo_social_media"/>LouisJustinTALLOT/CV_Maker</a>"""
+        res += """ utilisant le pack d'icônes gratuit <a href="https://streamlineicons.com/" target="_blank">Streamline.</a> """
+        res += "</footer>\n"
+        return res
+
     def to_html(self, format='full'):
         with open("CV.html", 'w', encoding='utf8') as file:
             # file.write("""<!DOCTYPE html\n PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"\n"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">\n""")
             file.write(html_head())
             file.write("<body>\n")
+            file.write("""<div id="main">\n""")
             file.write(self.html_header("photo_elmo.jpg"))
             # file.write("<h1> CV </h1>\n")
             file.write("""<section id="toutes_les_sections">\n""")
@@ -223,7 +232,9 @@ class CV:
             for sec in self.liste_sections:
                 if not sec.ignore:
                     file.write(sec.to_html())
-            file.write("</section>")
+            file.write("</section>\n")
+            file.write("</div>\n")
+            file.write(self.html_footer())
             file.write("</body>\n</html>")
 
 def mainloop(cv:CV, lieu='main', no_sec=-1, no_it=-1, new=False,modify=False):
