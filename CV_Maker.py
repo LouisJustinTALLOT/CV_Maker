@@ -160,71 +160,42 @@ class CV:
                     else : 
                         file.write(f"non;{it.numero};{it.titre};{it.organisme};{it.description};{it.date_debut};{it.date_fin};{it.logo};{it.url}\n")
 
-    def load_csv(self):
-        liste_des_sections = os.listdir("sections")
-        date_ref = os.path.getmtime("CV.json")
-
-        if os.path.getmtime("sections/infos_personnelles.csv") > date_ref :
-            # alors les infos perso ont été modifiées
+    def load(self):
+        if self.nouveau:
+            return
+        else :
+            # on va charger le CV à partir des fichiers CSV
             with open("sections/infos_personnelles.csv",'r',encoding='utf8') as file:
                 liste_infos_perso = file.readlines()
                 for ligne in liste_infos_perso:
-                    # on va remplacer la valeur dans self.qui_je_suis
+                    # on va écrire la valeur dans self.qui_je_suis
                     ligne = ligne[:-1]
                     key, value = ligne.split(";")
                     self.qui_je_suis[key] = value
 
-        for sec in liste_des_sections:
-            chemin_fichier = "sections/"+sec
-            if os.path.getmtime(chemin_fichier) > date_ref :
-                print("modifié : ", sec)
-                # alors le CSV a été modifié
-                with open(chemin_fichier, 'r', encoding='utf8') as file:
-                    liste_lignes_section = file.readlines()
-
-                trouve=False
-                sec:Section
-                for sec in self.liste_sections:
-                    if sec.nom == liste_lignes_section[0][:-1]:
-                        trouve=True
-                        # on a alors la section qui a été modifiée
-                        # on va alors reconstruire la section de 0
-                        sec.liste_items = []
-                        sec.liste_items_ignores = []
-                        sec.dict_etat_items = {}
-                        sec.dict_tous_items = {}
-                        sec.nb_items = 0
-
-                        for ligne_it in liste_lignes_section[2:]:#WIP
+            # on doit ajouter toutes les sections maintenant
+            for fichier in os.listdir("sections"):
+                if fichier != "infos_personnelles.csv":
+                    with open(f"sections/{fichier}",'r',encoding='utf8') as file:
+                        lignes_fichier = file.readlines()
+                    sec = Section()
+                    ligne_titre = lignes_fichier[0][:-1]
+                    sec.nom, sec.ignore = ligne_titre.split(";")
+                    for ligne_it in lignes_fichier[2:]:
                             if ligne_it and len(ligne_it)>1:
                                 print("ici",sec.nb_items)
                                 # on parcourt les items de la section
                                 ligne_it = ligne_it[:-1]
                                 ignore,no,titre,organisme,description,date_debut,date_fin,logo,url = ligne_it.split(";")
                                 if ignore == 'oui':
-                                    # on ajoute à la liste des ignores
-                                    sec.liste_items_ignores.append(Item(sec.nb_items,titre,organisme,description,date_debut,date_fin,logo,url))
-                                    sec.dict_etat_items[sec.nb_items] = "ignore"
-                                    sec.dict_tous_items[sec.nb_items] = sec.liste_items_ignores[-1]
+                                    # on l'ajoute avec ignore=True
+                                    sec.liste_items.append(Item(sec.nb_items,titre,organisme,description,date_debut,date_fin,logo,url,True))
                                     
-                                else:#WIP
-                                    sec.liste_items.append(Item(sec.nb_items,titre,organisme,description,date_debut,date_fin,logo,url))
-                                    sec.dict_etat_items[sec.nb_items] = "dedans"
-                                    sec.dict_tous_items[sec.nb_items] = sec.liste_items[-1]
+                                else:
+                                    sec.liste_items.append(Item(sec.nb_items,titre,organisme,description,date_debut,date_fin,logo,url,False))
                                 sec.nb_items += 1
-                        break
 
-                if not trouve:
-                    # alors c'est une nouvelle section 
-                    pass
-                    
-
-        # ATTENTION EN LISANT LES LIGNES COMMENTEES 
-        # ON NE VEUT PAS LES DETRUIRE EN SAUVANT LE FICHIER A LA FIN .....
-
-
-        #TODO :
-        # on doit pouvoir ajouter une section en ajoutant un CSV
+                    self.liste_sections.append(sec)
 
 
     def html_header(self,nom_image:str,format='full'):
