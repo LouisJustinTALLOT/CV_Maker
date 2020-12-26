@@ -106,7 +106,8 @@ class Section:
         res = f"""<h1 class="debut_de_section">{self.nom}</h1>\n"""
         it:Item
         for it in self.liste_items :
-            res += it.to_html()
+            if not it.ignore :
+                res += it.to_html()
         return res
 
 class CV:
