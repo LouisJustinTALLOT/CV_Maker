@@ -77,7 +77,7 @@ class Section:
     def __init__(self):
         self.liste_items = []
         self.nb_items = 0
-        self.nouveau()
+        self.ignore = False
 
     def nouveau(self):
         self.nom = input("Nom de la section : ")
@@ -168,7 +168,7 @@ class CV:
                         lignes_fichier = file.readlines()
                     sec = Section()
                     ligne_titre = lignes_fichier[0][:-1]
-                    sec.nom, sec.ignore = ligne_titre.split(";")
+                    sec.nom, sec.ignore = ligne_titre.split(";")[:2]
                     for ligne_it in lignes_fichier[2:]:
                             if ligne_it and len(ligne_it)>1:
                                 print("ici",sec.nb_items)
