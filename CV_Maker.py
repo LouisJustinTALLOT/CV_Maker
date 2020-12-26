@@ -71,8 +71,10 @@ class Item:
         return f"Item {self.titre}"
 
     def to_html(self):   # à modifier pour changer ce qu'on affiche
-        res = f"""<h2 class="titre_item">{self.titre}</h2>\n"""
-
+        res = f"""    <h2 class="titre_item">{self.titre}</h2>\n"""
+        res += f"""    <h3 class="organisme_item">{self.organisme}</h3>\n"""
+        res += f"""    <h3 class="dates_item">{self.date_debut} → {self.date_fin}</h3>\n"""
+        res += f"""    <p class="description_item">{self.description}</p>\n"""
         return res
 
 class Section:
