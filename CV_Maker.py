@@ -167,18 +167,24 @@ class CV:
 
         date_ref = os.path.getmtime("CV.json")
         for sec in self.liste_sections : #type: Section
-            if os.path.getmtime(f"sections/{titre_to_nom_de_fichier(sec.nom)}.csv")>date_ref:
-
-                with open(f"sections/{titre_to_nom_de_fichier(sec.nom)}.csv", 'w', encoding='utf8') as file :
+            fichier = f"sections/{titre_to_nom_de_fichier(sec.nom)}.csv"
+            # if fichier not in os.listdir("sections") or os.path.getmtime(fichier)>date_ref:
+            
+            with open(f"sections/{titre_to_nom_de_fichier(sec.nom)}.csv", 'w', encoding='utf8') as file :
+                file.write(f"{sec.nom}\n")#TODO 
                     file.write(f"{sec.nom}\n")#TODO 
-                    file.write("ignore;numero;titre;organisme;description;date_debut;date_fin;logo;url\n")
-                    print(sec.nb_items, len(sec.dict_tous_items))
-                    for i in range(sec.nb_items):
+                file.write(f"{sec.nom}\n")#TODO 
+                file.write("ignore;numero;titre;organisme;description;date_debut;date_fin;logo;url\n")
+                print(sec.nb_items, len(sec.dict_tous_items))
+                for i in range(sec.nb_items):
+                    try: #Problème ICI # TODO # WIP
                         it = sec.dict_tous_items[i]
                         if sec.dict_etat_items[i] == "ignore":
                             file.write(f"oui;{it.numero};{it.titre};{it.organisme};{it.description};{it.date_debut};{it.date_fin};{it.logo};{it.url}\n")
                         else : 
                             file.write(f"non;{it.numero};{it.titre};{it.organisme};{it.description};{it.date_debut};{it.date_fin};{it.logo};{it.url}\n")
+                    except:
+                        pass
 
     def load_csv(self):
         liste_des_sections = os.listdir("sections")
