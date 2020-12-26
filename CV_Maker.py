@@ -7,6 +7,8 @@ def titre_to_nom_de_fichier(titre:str):
     titre = titre.replace("ù", "u")
     titre = titre.replace("à", "a")
     titre = titre.replace("ç", "c")
+    titre = titre.replace("ô", "o")
+    titre = titre.replace("ï", "i")
     return titre
 
 def html_head(titre='CV', format='full'):
