@@ -15,6 +15,7 @@ def html_head(titre='CV', format='full'):
     res = f"""<!DOCTYPE html>
     <meta charset="utf-8" />
     <html lang="en">
+    <link rel="icon" href="favicon.png" />
     <link rel="stylesheet" href="{format}.css" />
     <head>
       <title>{titre}</title>
