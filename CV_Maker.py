@@ -20,23 +20,6 @@ def html_head(titre='CV', format='full'):
     """
     return res
 
-
-def sauvegarde_JSON(cv, nom_fichier="CV.json"):
-    # jsonstr = json.dumps(cv.__dict__)
-    cv.write_csv() # on écrit les CSV pour être raccord
-    jsonstr = jsonpickle.encode(cv, indent=1) #et on sauve en JSON
-    with open(nom_fichier, 'w', encoding='utf8') as file:
-        file.write(jsonstr) 
-
-def load_JSON(fichier):
-    with open(fichier, 'r', encoding='utf8') as file :
-        fichier = file.readlines()
-        jsonstr = "\n".join(fichier)
-    cv = jsonpickle.decode(jsonstr) # on récupère le CV du JSON
-    cv.load_csv() # et on compare avec les CSV 
-    return cv
-
-
 class Item:
     def __init__(self, num,t=None,org=None, des=None, dd=None, df=None, logo=None,url=None):
         
@@ -349,18 +332,14 @@ def mainloop(cv:CV, lieu='main', no_sec=-1, no_it=-1, new=False,modify=False):
         #         return
 
 def main():
-    try :
-        mon_cv = load_JSON('CV.json')
-
-    except Exception as e:
-        print(e)
-        print("n'a pas réussi à le charger")
-        mon_cv = CV()
-        mainloop(mon_cv)
-        sauvegarde_JSON(mon_cv,'CV_1.json')
+    if "infos_personnelles.csv" not in os.listdir("sections"):
+        cv = CV(new=True)
+        mainloop(cv)
+        cv.save()
     else:
+        mon_cv = CV()
+        mon_cv.load()
         mainloop(mon_cv)
-        sauvegarde_JSON(mon_cv)
-
+        mon_cv.save()
 
 main()
