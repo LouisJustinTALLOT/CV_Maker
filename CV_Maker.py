@@ -203,7 +203,7 @@ class CV:
         else:
             return self.html_header(nom_image) # à changer pour les autres styles
 
-    def to_html(self, format='normal'):
+    def to_html(self, format='full'):
         with open("CV.html", 'w', encoding='utf8') as file:
             # file.write("""<!DOCTYPE html\n PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"\n"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">\n""")
             file.write(html_head())
