@@ -21,7 +21,7 @@ def html_head(titre='CV', format='full'):
     return res
 
 class Item:
-    def __init__(self, num,t=None,org=None, des=None, dd=None, df=None, logo=None,url=None):
+    def __init__(self, num,t=None,org=None, des=None, dd=None, df=None, logo=None,url=None,ignore=False):
         
         self.numero = num
         if t:
@@ -32,6 +32,7 @@ class Item:
             self.date_fin = df
             self.logo = logo
             self.url =url
+            self.ignore = ignore
         else:
             self.nouveau()
 
@@ -44,6 +45,7 @@ class Item:
         self.date_fin = input("Date de fin ou in progress : ")
         self.logo = input("Nom du fichier logo : ")
         self.url = input("Url éventuelle : ")
+        self.ignore=False
 
     def afficher(self):
         print(self.titre)
@@ -74,9 +76,6 @@ class Section:
     
     def __init__(self):
         self.liste_items = []
-        self.liste_items_ignores = []
-        self.dict_etat_items = {}
-        self.dict_tous_items = {}
         self.nb_items = 0
         self.nouveau()
 
@@ -85,17 +84,8 @@ class Section:
         # self.liste_items.append(Item())
 
 
-    def ajouter_item(self, ignore=False):
-        if ignore:
-            self.liste_items_ignores.append(Item(self.nb_items))
-            self.dict_etat_items[self.nb_items] = "ignore"
-            self.dict_tous_items[self.nb_items] = self.liste_items_ignores[-1]
-            
-        else:
-            self.liste_items.append(Item(self.nb_items))
-            self.dict_etat_items[self.nb_items] = "dedans"
-            self.dict_tous_items[self.nb_items] = self.liste_items[-1]
-        
+    def ajouter_item(self):
+        self.liste_items.append(Item(self.nb_items))
         self.nb_items += 1
 
     def afficher(self):
@@ -119,18 +109,16 @@ class Section:
 
 class CV:
 
-    def __init__(self):
+    def __init__(self, new=False):
         self.liste_sections = []
         self.nb_sections = 0
-        self.qui_je_suis = {'nom' : "Elmo",
-               'date_naissance' : "01/01/1970",
-                'motto' : 'Voici ma devise'
-        }
+        self.qui_je_suis = {}
+        self.nouveau = new
 
-        self.qui_je_suis["nom"] = input("Votre nom: ")
-        self.qui_je_suis["date_naissance"] = input("Votre date de naissance: ")
-        self.qui_je_suis["motto"] = input("Votre motto")
-        # self.nouvelle_section()
+        if self.nouveau:
+            self.qui_je_suis["nom"] = input("Votre nom: ")
+            self.qui_je_suis["date_naissance"] = input("Votre date de naissance: ")
+            self.qui_je_suis["motto"] = input("Votre motto")
 
     def nouvelle_section(self):
         self.liste_sections.append(Section())
