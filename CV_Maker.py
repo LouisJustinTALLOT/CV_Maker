@@ -214,7 +214,8 @@ class CV:
             file.write("""<section id="toutes_les_sections">\n""")
             sec:Section
             for sec in self.liste_sections:
-                file.write(sec.to_html())
+                if not sec.ignore:
+                    file.write(sec.to_html())
             file.write("</section>")
             file.write("</body>\n</html>")
 
