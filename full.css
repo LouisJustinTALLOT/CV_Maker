@@ -79,5 +79,13 @@ header
 {
     font-weight:350;
 }
+
+.organisme_item, .dates_item
+{
+    padding: 0cm;
+    margin: 0cm;
+    margin-right: 1cm;
+    font-weight: 400;
+    display: inline;
 }
 
