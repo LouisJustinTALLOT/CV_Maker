@@ -20,6 +20,8 @@ header
     /* margin-bottom: 1em;   */
     display: block;
     width : 21cm;
+    /* margin-top: -1cm; */
+    /* padding: -1cm; */
 }
 
 #profile_picture
