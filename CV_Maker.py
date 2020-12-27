@@ -1,4 +1,5 @@
 import os
+import pdfkit
 
 def titre_to_nom_de_fichier(titre:str):
     titre = titre.replace(" ", "_")
@@ -272,6 +273,10 @@ def mainloop(cv:CV, lieu='main', no_sec=-1, no_it=-1, new=False,modify=False):
                         break
             elif key[0].lower() == 'p':
                 cv.to_html()
+            elif key[0].lower() == 'r':
+                cv.to_html()
+                options = {"enable-local-file-access": ""}
+                pdfkit.from_file('CV.html', 'CV.pdf', options=options)
     
     elif lieu == 'section':
         if not modify:
