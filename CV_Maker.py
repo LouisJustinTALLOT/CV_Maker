@@ -11,12 +11,12 @@ def titre_to_nom_de_fichier(titre:str):
     titre = titre.replace("ï", "i")
     return titre
 
-def html_head(titre='CV', format='full'):
+def html_head(titre='CV', style_CV='full'):
     res = f"""<!DOCTYPE html>
     <meta charset="utf-8" />
     <html lang="en">
     <link rel="icon" href="favicon.png" />
-    <link rel="stylesheet" href="{format}.css" />
+    <link rel="stylesheet" href="{style_CV}.css" />
     <head>
       <title>{titre}</title>
     </head>
@@ -151,7 +151,7 @@ class CV:
             # fichier = f"sections/{titre_to_nom_de_fichier(sec.nom)}.csv"
             
             with open(f"sections/{titre_to_nom_de_fichier(sec.nom)}.csv", 'w', encoding='utf8') as file :
-                file.write(f"{sec.nom};{sec.ignore}\n")#TODO 
+                file.write(f"{sec.nom};{sec.ignore}\n")
                 file.write("ignore;numero;titre;organisme;description;date_debut;date_fin;logo;url\n")
                 it : Item
                 for j, it in enumerate(sec.liste_items):
@@ -163,47 +163,47 @@ class CV:
     def load(self):
         if self.nouveau:
             return
-        else :
-            # on va charger le CV à partir des fichiers CSV
-            with open("sections/infos_personnelles.csv",'r',encoding='utf8') as file:
-                liste_infos_perso = file.readlines()
-                for ligne in liste_infos_perso:
-                    # on va écrire la valeur dans self.qui_je_suis
-                    ligne = ligne[:-1]
-                    key, value = ligne.split(";")
-                    self.qui_je_suis[key] = value
+        
+        # on va charger le CV à partir des fichiers CSV
+        with open("sections/infos_personnelles.csv",'r',encoding='utf8') as file:
+            liste_infos_perso = file.readlines()
+            for ligne in liste_infos_perso:
+                # on va écrire la valeur dans self.qui_je_suis
+                ligne = ligne[:-1]
+                key, value = ligne.split(";")
+                self.qui_je_suis[key] = value
 
-            # on doit ajouter toutes les sections maintenant
-            for fichier in os.listdir("sections"):
-                if fichier != "infos_personnelles.csv":
-                    with open(f"sections/{fichier}",'r',encoding='utf8') as file:
-                        lignes_fichier = file.readlines()
-                    sec = Section()
-                    ligne_titre = lignes_fichier[0][:-1]
-                    sec.nom, sec.ignore = ligne_titre.split(";")[:2]
-                    if sec.ignore == 'True':
-                        sec.ignore = True
-                    else: 
-                        sec.ignore = False
-                    for ligne_it in lignes_fichier[2:]:
-                            if ligne_it and len(ligne_it)>1:
-                                # on parcourt les items de la section
-                                ligne_it = ligne_it[:-1]
-                                ignore,no,titre,organisme,description,date_debut,date_fin,logo,url = ligne_it.split(";")
-                                if ignore == 'oui':
-                                    # on l'ajoute avec ignore=True
-                                    sec.liste_items.append(Item(sec.nb_items,titre,organisme,description,date_debut,date_fin,logo,url,True))
-                                    
-                                else:
-                                    sec.liste_items.append(Item(sec.nb_items,titre,organisme,description,date_debut,date_fin,logo,url,False))
-                                sec.nb_items += 1
+        # on doit ajouter toutes les sections maintenant
+        for fichier in os.listdir("sections"):
+            if fichier != "infos_personnelles.csv":
+                with open(f"sections/{fichier}",'r',encoding='utf8') as file:
+                    lignes_fichier = file.readlines()
+                sec = Section()
+                ligne_titre = lignes_fichier[0][:-1]
+                sec.nom, sec.ignore = ligne_titre.split(";")[:2]
+                if sec.ignore == 'True':
+                    sec.ignore = True
+                else: 
+                    sec.ignore = False
+                for ligne_it in lignes_fichier[2:]:
+                        if ligne_it and len(ligne_it)>1:
+                            # on parcourt les items de la section
+                            ligne_it = ligne_it[:-1]
+                            ignore,no,titre,organisme,description,date_debut,date_fin,logo,url = ligne_it.split(";")
+                            if ignore == 'oui':
+                                # on l'ajoute avec ignore=True
+                                sec.liste_items.append(Item(sec.nb_items,titre,organisme,description,date_debut,date_fin,logo,url,True))
+                                
+                            else:
+                                sec.liste_items.append(Item(sec.nb_items,titre,organisme,description,date_debut,date_fin,logo,url,False))
+                            sec.nb_items += 1
 
-                    self.liste_sections.append(sec)
+                self.liste_sections.append(sec)
 
 
-    def html_header(self,nom_image:str,format='full'):
+    def html_header(self,nom_image:str,style_CV='full'):
         res = ""
-        if format == 'full':
+        if style_CV == 'full':
             res += "<header>\n"
             res += f"""  <img src = "images/{nom_image}" id="profile_picture" />\n"""
             res += """  <section id="header_sauf_photo">\n"""
@@ -216,8 +216,9 @@ class CV:
             res += """  </section>\n"""
             res += "</header>\n"
             return res
-        else:
+        elif style_CV == 'onepager':
             return self.html_header(nom_image) # à changer pour les autres styles
+        return self.html_header(nom_image)
 
     def html_footer(self):
         res = "<footer>\n"
@@ -227,7 +228,7 @@ class CV:
         res += "</footer>\n"
         return res
 
-    def to_html(self, format='full'):
+    def to_html(self, style_CV='full'):
         with open("CV.html", 'w', encoding='utf8') as file:
             # file.write("""<!DOCTYPE html\n PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"\n"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">\n""")
             file.write(html_head())
@@ -274,7 +275,7 @@ def mainloop(cv:CV, lieu='main', no_sec=-1, no_it=-1, new=False,modify=False):
     
     elif lieu == 'section':
         if not modify:
-            while True : #TODO
+            while True :
                 key = input("q : quitter section,l: list item s : new item , m odifier item: ")
                 if not key :
                     pass
