@@ -75,6 +75,8 @@ class Item:
         res += f"""    <h3 class="organisme_item">{self.organisme}</h3>\n"""
         res += f"""    <h3 class="dates_item">{self.date_debut} → {self.date_fin}</h3>\n"""
         res += f"""    <p class="description_item">{self.description}</p>\n"""
+        if self.url:
+            res += f"""    <a class="url_item" href="{self.url}" target="_blank"> {self.url} </a> """
         return res
 
 class Section:

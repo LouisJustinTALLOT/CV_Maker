@@ -95,6 +95,12 @@ header
     font-weight: 500;
 }
 
+.url_item
+{
+    /* margin-bottom: 1cm; */
+    /* display: block; */
+}
+
 a:link {
     color :var(--couleur-liens)
 }
