@@ -31,6 +31,8 @@ header
     display: inline-block;
     padding-left: 1em;
     padding-right: 1em;
+    padding-top: 0cm;
+    margin-top: 0.3cm;
 }
 
 #header_sauf_photo
