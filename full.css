@@ -94,3 +94,24 @@ header
     margin: 0cm;
     font-weight: 500;
 }
+
+a:link {
+    color :var(--couleur-liens)
+}
+
+a:visited {
+    color :var(--couleur-liens)
+}
+
+a:focus {
+    color :var(--couleur-liens)
+}
+
+a:hover {
+    color :var(--couleur-liens)
+}
+
+a:active {
+    color :var(--couleur-liens)
+}
+
