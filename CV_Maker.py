@@ -78,7 +78,7 @@ class Item:
             if self.date_fin:
                 res += f"""    <h3 class="dates_item">{self.date_debut} - {self.date_fin}</h3>\n"""
             else:
-                res += f"""    <h3 class="dates_item">{self.date_debut}"""
+                res += f"""    <h3 class="dates_item">{self.date_debut} </h3>"""
         res += f"""    <p class="description_item">{self.description}</p>\n"""
         if self.url:
             res += f"""    <a class="url_item" href="{self.url}" target="_blank"> {self.url} </a> """
