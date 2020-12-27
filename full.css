@@ -115,3 +115,7 @@ a:active {
     color :var(--couleur-liens)
 }
 
+footer
+{
+    font-size: x-small  ;
+}
