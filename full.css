@@ -40,6 +40,13 @@ header
     display : inline-block;
 }
 
+.logo_social_media
+{
+    height: 14px;
+    width: auto;
+    margin-bottom: -2px; /* pour aligner avec le texte*/
+}
+
 #header_nom
 {
     font-size: 3em;
