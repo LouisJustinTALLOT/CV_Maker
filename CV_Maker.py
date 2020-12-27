@@ -73,7 +73,11 @@ class Item:
     def to_html(self):   # à modifier pour changer ce qu'on affiche
         res = f"""    <h2 class="titre_item">{self.titre}</h2>\n"""
         res += f"""    <h3 class="organisme_item">{self.organisme}</h3>\n"""
-        res += f"""    <h3 class="dates_item">{self.date_debut} → {self.date_fin}</h3>\n"""
+        if self.date_debut:
+            if self.date_fin:
+                res += f"""    <h3 class="dates_item">{self.date_debut} - {self.date_fin}</h3>\n"""
+            else:
+                res += f"""    <h3 class="dates_item">{self.date_debut}"""
         res += f"""    <p class="description_item">{self.description}</p>\n"""
         if self.url:
             res += f"""    <a class="url_item" href="{self.url}" target="_blank"> {self.url} </a> """
