@@ -224,7 +224,7 @@ class CV:
     def html_footer(self):
         res = "<footer>\n"
         res += """    <p>Ce CV est le produit du projet """
-        res += f"""<a href="github.com/LouisJustinTALLOT/CV_Maker" target="_blank"><img src="images/logo_github.png" class="logo_social_media"/>LouisJustinTALLOT/CV_Maker</a>"""
+        res += f"""<a href="https://github.com/LouisJustinTALLOT/CV_Maker" target="_blank"><img src="images/logo_github.png" class="logo_social_media"/>LouisJustinTALLOT/CV_Maker</a>"""
         res += """ utilisant le pack d'icônes gratuit <a href="https://streamlineicons.com/" target="_blank">Streamline.</a> """
         res += "</footer>\n"
         return res
