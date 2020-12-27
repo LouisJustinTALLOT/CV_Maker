@@ -119,3 +119,11 @@ footer
 {
     font-size: x-small  ;
 }
+
+footer .logo_social_media
+{
+    height: 10px;
+    width: auto;
+    padding-left: 1px;
+    padding-right: 1px;
+}
