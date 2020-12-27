@@ -7,6 +7,12 @@ body
     padding: 0cm;
 }
 
+:root
+{
+    --couleur-texte-header : rgb(6, 6, 90);
+    --couleur-liens: var(--couleur-texte-header);
+}
+
 header
 {
     background-color: rgba(0, 140, 255, 0.336);
