@@ -42,8 +42,9 @@ header
 
 #header_nom
 {
-    font-size: 4em;
+    font-size: 3em;
     /* text-align: right; */
+    margin: 0cm;
 
 }
 
