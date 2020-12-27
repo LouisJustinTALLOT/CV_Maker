@@ -15,8 +15,8 @@ body
 
 header
 {
-    background-color: rgba(0, 140, 255, 0.336);
-    color : rgb(0, 0, 255);
+    background-color: rgba(114, 114, 114, 0.226);
+    color : var(--couleur-texte-header) ;
     /* margin-bottom: 1em;   */
     display: block;
     width : 21cm;
