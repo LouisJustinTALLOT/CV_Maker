@@ -70,11 +70,9 @@ header
     margin-bottom: 0.3cm;
 }
 
-#toutes_les_sections
+/* #toutes_les_sections h2
 {
-    /* margin-top: 3cm; */
-    display: block;
-    clear: both;
-    float: bottom;
+    font-weight:500;
+} */
 }
 
