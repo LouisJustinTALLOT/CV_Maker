@@ -89,3 +89,8 @@ header
     display: inline;
 }
 
+.titre_item
+{
+    margin: 0cm;
+    font-weight: 500;
+}
