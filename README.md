@@ -1,5 +1,7 @@
 # `CV_Maker`
 
+[![CodeFactor](https://www.codefactor.io/repository/github/louisjustintallot/cv_maker/badge/master)](https://www.codefactor.io/repository/github/louisjustintallot/cv_maker/overview/master)
+
 Ce projet a pour but de construire un CV en utilisant les technologies suivantes :
 - `Python` pour les scripts
 - `JSON` pour sauvegarder les objets créés
