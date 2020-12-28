@@ -1,0 +1,34 @@
+.conteneur_global
+{
+    display: flex;
+    width: 21cm;
+    padding: 0;
+    border : 1px solid salmon;  
+
+}
+
+.description
+{
+    display: inline-block;
+    margin: 0;
+    width: 18cm;
+    border: 1px solid blue;
+}
+
+.logo
+{
+    width: 1cm;
+    margin : 0;
+    padding: 0;
+    display: inline-block;
+    border: 1px solid red;
+    vertical-align: 200%;
+}
+
+/* .conteneur_logo
+{
+    border : 1px solid green;
+    display: inline-block;
+    width:auto;
+    margin: 0;
+} */
