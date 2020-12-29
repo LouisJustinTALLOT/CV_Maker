@@ -11,6 +11,7 @@ body
 {
     --couleur-texte-header : rgb(6, 6, 90);
     --couleur-liens: var(--couleur-texte-header);
+    --largeur-descriptions : 18cm;
 }
 
 header
@@ -112,51 +113,36 @@ header
 
 .description_et_logo_item
 {
-    /* display: block; */
-    border: 1px solid red; 
-    padding: 0;
-    /* clear :both; */
-    /* text-align: center; */
-}
-.description_et_logo_item::after
-{
-    content: "";
-    display: block;
-    clear: both;
+    display : flex;
+    width : 21cm;
+    /* border: 1px solid salmon; */
+    align-items: center;
 }
 
 .description_item
 {
-    clear: both;
-    display: block;
-    width: 18cm;
-    border: 1px solid violet;
-    margin: 0;
-    float: left;
+    width: var(--largeur-descriptions);
+    /* border : 1px solid blue; */
+    margin-top: 1ex;
+    /* text-justify */
 }
 
-.description_et_logo_item .conteneur_logo_item
+.conteneur_logo_item
 {
-    /* display: block; */
-    padding: 0;
-    margin: 0;
-    border: 1px solid blue;
-    vertical-align: bottom;
-
+    /* border : 1px solid green; */
+    width: calc(21cm - var(--largeur-descriptions));
+    text-align: center;
 }
 
 .logo_item
-{   
-    height: 1cm;
-    width: auto;
-    display: inline-block;
-    /* margin-top: auto; */
-    /* margin-bottom: auto; */
-    /* vertical-align: middle; */
-    /* float: right; */
-    position: relative;
-    top: 50%;
+{
+    width: 1cm;
+    height: auto;
+    /* border: 1px solid red; */
 }
+
+
+
 
 a:link {
     color :var(--couleur-liens)

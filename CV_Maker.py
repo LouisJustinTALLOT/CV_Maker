@@ -78,8 +78,12 @@ class Item:
             if self.date_fin:
                 res += f"""    <h3 class="dates_item">{self.date_debut} - {self.date_fin}</h3>\n"""
             else:
-                res += f"""    <h3 class="dates_item">{self.date_debut} </h3>"""
+                res += f"""    <h3 class="dates_item">{self.date_debut} </h3>\n"""
+        res += """    <div class="description_et_logo_item">\n"""
         res += f"""    <p class="description_item">{self.description}</p>\n"""
+        if self.logo:
+            res += f"""   <div class="conteneur_logo_item"> <img src="images/{self.logo}" class="logo_item" /></div>\n"""
+        res += """    </div>\n"""
         if self.url:
             res += f"""    <a class="url_item" href="{self.url}" target="_blank"> {self.url} </a> """
         return res
@@ -162,6 +166,7 @@ class CV:
                         file.write(f"non;{it.numero};{it.titre};{it.organisme};{it.description};{it.date_debut};{it.date_fin};{it.logo};{it.url}\n")
 
     def load(self):
+        """Charge un CV à partir des fichiers CSV"""
         if self.nouveau:
             return
         
