@@ -124,7 +124,7 @@ header
     width: var(--largeur-descriptions);
     /* border : 1px solid blue; */
     margin-top: 1ex;
-    /* text-justify */
+    text-align: justify;
 }
 
 .conteneur_logo_item
