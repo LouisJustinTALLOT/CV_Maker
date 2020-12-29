@@ -1,34 +1,41 @@
+html, body{
+    height: 100%;
+}
+
 .conteneur_global
 {
     display: flex;
     width: 21cm;
     padding: 0;
     border : 1px solid salmon;  
+    /* justify-content: center   ; */
+    align-items: center;
+    /* flex:none   ; */
 
 }
 
 .description
 {
-    display: inline-block;
+    /* display: inline-block; */
     margin: 0;
     width: 18cm;
     border: 1px solid blue;
+    text-justify: auto;
 }
 
 .logo
 {
     width: 1cm;
     margin : 0;
-    padding: 0;
-    display: inline-block;
+    /* padding: 0;  */
+    /* display: inline-block; */
     border: 1px solid red;
-    vertical-align: 200%;
+    /* vertical-align: 200%; */
 }
 
-/* .conteneur_logo
+.conteneur_logo
 {
     border : 1px solid green;
-    display: inline-block;
-    width:auto;
-    margin: 0;
-} */
+    width: 3cm;
+    text-align: center;
+}
