@@ -107,8 +107,55 @@ header
 
 .url_item
 {
-    /* margin-bottom: 1cm; */
+    display: block ;
+}
+
+.description_et_logo_item
+{
     /* display: block; */
+    border: 1px solid red; 
+    padding: 0;
+    /* clear :both; */
+    /* text-align: center; */
+}
+.description_et_logo_item::after
+{
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.description_item
+{
+    clear: both;
+    display: block;
+    width: 18cm;
+    border: 1px solid violet;
+    margin: 0;
+    float: left;
+}
+
+.description_et_logo_item .conteneur_logo_item
+{
+    /* display: block; */
+    padding: 0;
+    margin: 0;
+    border: 1px solid blue;
+    vertical-align: bottom;
+
+}
+
+.logo_item
+{   
+    height: 1cm;
+    width: auto;
+    display: inline-block;
+    /* margin-top: auto; */
+    /* margin-bottom: auto; */
+    /* vertical-align: middle; */
+    /* float: right; */
+    position: relative;
+    top: 50%;
 }
 
 a:link {
