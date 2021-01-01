@@ -1,5 +1,6 @@
 import os
 import pdfkit
+from weasyprint import HTML, CSS
 
 def titre_to_nom_de_fichier(titre:str):
     titre = titre.replace(" ", "_")
@@ -285,6 +286,7 @@ def mainloop(cv:CV, lieu='main', no_sec=-1, no_it=-1, new=False,modify=False):
                 cv.to_html()
                 options = {"enable-local-file-access": ""}
                 pdfkit.from_file('CV.html', 'CV.pdf', options=options)
+                HTML('CV.html').write_pdf('CV2.pdf')
     
     elif lieu == 'section':
         if not modify:

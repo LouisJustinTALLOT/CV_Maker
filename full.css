@@ -5,8 +5,16 @@ body
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     width: 21cm;
     padding: 0;
+    margin:1cm;
 }
 
+@page
+{
+    size : 21cm 29.7cm !important;
+    margin:0 !important;
+    padding:0 !important;
+    bleed: 0 !important;
+}
 :root
 {
     --couleur-texte-header : rgb(6, 6, 90);
@@ -131,7 +139,7 @@ header
 .conteneur_logo_item
 {
     /* border : 1px solid green; */
-    width: calc(21cm - var(--largeur-descriptions));
+    width: calc(100% - var(--largeur-descriptions));
     text-align: center;
 }
 
