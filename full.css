@@ -109,6 +109,7 @@ header
 .url_item
 {
     display: block ;
+    margin-top: 0.5ex;
 }
 
 .description_et_logo_item

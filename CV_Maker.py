@@ -80,12 +80,15 @@ class Item:
             else:
                 res += f"""    <h3 class="dates_item">{self.date_debut} </h3>\n"""
         res += """    <div class="description_et_logo_item">\n"""
-        res += f"""    <p class="description_item">{self.description}</p>\n"""
+        res += f"""    <p class="description_item">{self.description}\n"""
+        if self.url:   
+            res += f"""    <br /><a class="url_item" href="{self.url}" target="_blank">{self.url}</a>"""
+        res += """    </p>\n"""
         if self.logo:
             res += f"""   <div class="conteneur_logo_item"> <img src="images/{self.logo}" class="logo_item" /></div>\n"""
         res += """    </div>\n"""
-        if self.url:
-            res += f"""    <a class="url_item" href="{self.url}" target="_blank"> {self.url} </a> """
+        # if self.url:
+        #     res += f"""    <a class="url_item" href="{self.url}" target="_blank"> {self.url} </a> """
         return res
 
 class Section:
