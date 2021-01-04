@@ -251,7 +251,10 @@ class CV:
             sec:Section
             for sec in self.liste_sections:
                 if not sec.ignore:
+                    file.write(f"""<section id="{titre_to_nom_de_fichier(sec.nom)}"> \n""")
                     file.write(sec.to_html())
+                    file.write(f"""</section> \n""")
+
             file.write("</section>\n")
             file.write("</div>\n")
             file.write(self.html_footer())
