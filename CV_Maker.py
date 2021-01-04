@@ -343,4 +343,5 @@ def main():
         mainloop(mon_cv)
         mon_cv.save()
 
-main()
+if __name__ == "__main__":
+    main()
