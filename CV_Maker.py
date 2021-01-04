@@ -29,7 +29,7 @@ class Item:
     def __init__(self, num,t=None,org=None, des=None, dd=None, df=None, logo=None,url=None,ignore=False):
         
         self.numero = num
-        if t:
+        if t or org or des:
             self.titre = t
             self.organisme = org
             self.description = des
