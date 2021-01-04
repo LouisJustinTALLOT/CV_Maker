@@ -251,6 +251,8 @@ class CV:
             file.write(self.html_header("photo_elmo.jpg"))
             # file.write("<h1> CV </h1>\n")
             file.write("""<section id="toutes_les_sections">\n""")
+            
+            self.liste_sections.sort(key=lambda x: x.numero)
             sec:Section
             for sec in self.liste_sections:
                 if not sec.ignore:
