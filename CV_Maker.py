@@ -99,6 +99,7 @@ class Section:
         self.nb_items = 0
         self.ignore = False
         self.type = 0
+        self.numero = 0
 
     def nouveau(self):
         self.nom = input("Nom de la section : ")
@@ -162,7 +163,7 @@ class CV:
             # fichier = f"sections/{titre_to_nom_de_fichier(sec.nom)}.csv"
             
             with open(f"sections/{titre_to_nom_de_fichier(sec.nom)}.csv", 'w', encoding='utf8') as file :
-                file.write(f"{sec.nom};{sec.ignore};{sec.type}\n")
+                file.write(f"{sec.nom};{sec.ignore};{sec.type};{sec.numero}\n")
                 file.write("ignore;numero;titre;organisme;description;date_debut;date_fin;logo;url\n")
                 it : Item
                 for j, it in enumerate(sec.liste_items):
@@ -192,7 +193,7 @@ class CV:
                     lignes_fichier = file.readlines()
                 sec = Section()
                 ligne_titre = lignes_fichier[0][:-1]
-                sec.nom, sec.ignore, sec.type = ligne_titre.split(";")[:3]
+                sec.nom, sec.ignore, sec.type, sec.numero = ligne_titre.split(";")[:4]
                 if sec.ignore == 'True':
                     sec.ignore = True
                 else: 
