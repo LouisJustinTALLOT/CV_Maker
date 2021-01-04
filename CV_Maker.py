@@ -88,8 +88,6 @@ class Item:
         if self.logo:
             res += f"""   <div class="conteneur_logo_item"> <img src="images/{self.logo}" class="logo_item" /></div>\n"""
         res += """    </div>\n"""
-        # if self.url:
-        #     res += f"""    <a class="url_item" href="{self.url}" target="_blank"> {self.url} </a> """
         return res
 
 class Section:
@@ -103,7 +101,6 @@ class Section:
 
     def nouveau(self):
         self.nom = input("Nom de la section : ")
-        # self.liste_items.append(Item())
 
 
     def ajouter_item(self):
@@ -160,7 +157,6 @@ class CV:
 
         sec:Section
         for sec in self.liste_sections :
-            # fichier = f"sections/{titre_to_nom_de_fichier(sec.nom)}.csv"
             
             with open(f"sections/{titre_to_nom_de_fichier(sec.nom)}.csv", 'w', encoding='utf8') as file :
                 file.write(f"{sec.nom};{sec.ignore};{sec.type};{sec.numero}\n")
@@ -244,12 +240,10 @@ class CV:
 
     def to_html(self, style_CV='full'):
         with open("CV.html", 'w', encoding='utf8') as file:
-            # file.write("""<!DOCTYPE html\n PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"\n"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">\n""")
             file.write(html_head())
             file.write("<body>\n")
             file.write("""<div id="main">\n""")
             file.write(self.html_header("photo_elmo.jpg"))
-            # file.write("<h1> CV </h1>\n")
             file.write("""<section id="toutes_les_sections">\n""")
             
             self.liste_sections.sort(key=lambda x: x.numero)
