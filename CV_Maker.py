@@ -194,6 +194,7 @@ class CV:
                 sec = Section()
                 ligne_titre = lignes_fichier[0][:-1]
                 sec.nom, sec.ignore, sec.type, sec.numero = ligne_titre.split(";")[:4]
+                sec.numero = int(sec.numero)
                 if sec.ignore == 'True':
                     sec.ignore = True
                 else: 
