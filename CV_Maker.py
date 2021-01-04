@@ -144,6 +144,7 @@ class CV:
 
     def nouvelle_section(self):
         self.liste_sections.append(Section())
+        self.liste_sections[-1].nouveau()
         self.nb_sections += 1
 
     def afficher_sections(self):
