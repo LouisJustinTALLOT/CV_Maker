@@ -102,10 +102,15 @@ header
 {
     padding: 0;
     margin: 0;
-    font-variant: small-caps;
-    margin-right: 1cm;
+    /* font-variant: all-small-caps; */
+    text-transform: uppercase;
     font-weight: 350;
     display: inline;
+}
+
+.dates_et_org
+{
+    margin-left: 1cm;
 }
 
 .titre_item
