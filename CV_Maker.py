@@ -76,16 +76,16 @@ class Item:
         res = f"""    <h2 class="titre_item">{self.titre}</h2>\n"""
         res += f"""    <h3 class="organisme_item">{self.organisme}</h3>\n"""
         if self.date_debut:
-            if self.description:
+            if not self.organisme:
                 if self.date_fin:
                     res += f"""    <h3 class="dates_item">{self.date_debut} - {self.date_fin}</h3>\n"""
                 else:
                     res += f"""    <h3 class="dates_item">{self.date_debut} </h3>\n"""
             else:
                 if self.date_fin:
-                    res += f"""    <h3 class="dates_item dates_et_desc">{self.date_debut} - {self.date_fin}</h3>\n"""
+                    res += f"""    <h3 class="dates_item dates_et_org">{self.date_debut} - {self.date_fin}</h3>\n"""
                 else:
-                    res += f"""    <h3 class="dates_item dates_et_desc">{self.date_debut} </h3>\n"""
+                    res += f"""    <h3 class="dates_item dates_et_org">{self.date_debut} </h3>\n"""
                     
         res += """    <div class="description_et_logo_item">\n"""
         res += f"""    <p class="description_item">{self.description}\n"""
