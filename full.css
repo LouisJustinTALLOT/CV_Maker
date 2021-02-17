@@ -1,31 +1,27 @@
-body
-{
+body {
     background-color: white;
-    color : black;
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: black;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     /* width: 21cm; */
     padding: 0;
-    margin:1cm;
+    margin: 1cm;
 }
 
-@page
-{
-    size : 21cm 29.7cm !important;
-    margin:0 !important;
-    padding:0 !important;
+@page {
+    size: 21cm 29.7cm !important;
+    margin: 0 !important;
+    padding: 0 !important;
     bleed: 0 !important;
 }
-:root
-{
-    --couleur-texte-header : rgb(6, 6, 90);
+:root {
+    --couleur-texte-header: rgb(6, 6, 90);
     --couleur-liens: var(--couleur-texte-header);
-    --largeur-descriptions : 87.5%;
+    --largeur-descriptions: 87.5%;
 }
 
-header
-{
+header {
     background-color: rgba(114, 114, 114, 0.226);
-    color : var(--couleur-texte-header) ;
+    color: var(--couleur-texte-header);
     /* margin-bottom: 1em;   */
     display: block;
     /* width : 21cm !important; */
@@ -33,10 +29,9 @@ header
     /* padding: -1cm; */
 }
 
-#profile_picture
-{
-    height:200px;
-    width:auto;
+#profile_picture {
+    height: 200px;
+    width: auto;
     display: inline-block;
     padding-left: 1em;
     padding-right: 1em;
@@ -44,28 +39,23 @@ header
     margin-top: 0.3cm;
 }
 
-#header_sauf_photo
-{
-    display : inline-block;
+#header_sauf_photo {
+    display: inline-block;
 }
 
-.logo_social_media
-{
+.logo_social_media {
     height: 14px;
     width: auto;
     margin-bottom: -2px; /* pour aligner avec le texte*/
 }
 
-#header_nom
-{
+#header_nom {
     font-size: 3em;
     /* text-align: right; */
     margin: 0;
-
 }
 
-#toutes_les_sections
-{
+#toutes_les_sections {
     /* margin-top: 3cm; */
     display: block;
     clear: both;
@@ -73,8 +63,7 @@ header
     margin: 0;
 }
 
-#toutes_les_sections h1
-{
+#toutes_les_sections h1 {
     border-bottom: 1px solid black;
     margin-bottom: 0.3cm;
 }
@@ -84,13 +73,11 @@ header
     font-weight:500;
 } */
 
-#toutes_les_sections p
-{
-    font-weight:350;
+#toutes_les_sections p {
+    font-weight: 350;
 }
 
-.organisme_item 
-{
+.organisme_item {
     page-break-after: avoid;
     padding: 0;
     margin: 0;
@@ -99,8 +86,7 @@ header
     display: inline;
 }
 
-.dates_item
-{
+.dates_item {
     page-break-after: avoid;
     padding: 0;
     margin: 0;
@@ -110,85 +96,73 @@ header
     display: inline;
 }
 
-.dates_et_org
-{
+.dates_et_org {
     margin-left: 1cm;
 }
 
-.titre_item
-{
+.titre_item {
     page-break-after: avoid;
     margin: 0;
     font-weight: 500;
 }
 
-.url_item
-{
-    display: block ;
+.url_item {
+    display: block;
     margin-top: 0.5ex;
 }
 
-.description_et_logo_item
-{
+.description_et_logo_item {
     page-break-inside: avoid;
-    display : flex;
+    display: flex;
     /* width : 21cm; */
     /* border: 1px solid salmon; */
     align-items: center;
 }
 
-.description_item
-{
+.description_item {
     width: var(--largeur-descriptions);
     /* border : 1px solid blue; */
     margin-top: 1ex;
     text-align: justify;
 }
 
-.conteneur_logo_item
-{
+.conteneur_logo_item {
     /* border : 1px solid green; */
     width: calc(100% - var(--largeur-descriptions));
     text-align: center;
 }
 
-.logo_item
-{
+.logo_item {
     max-height: 1.5cm;
     max-width: 3cm;
     /* border: 1px solid red; */
 }
 
-
-
-
 a:link {
-    color :var(--couleur-liens)
+    color: var(--couleur-liens);
 }
 
 a:visited {
-    color :var(--couleur-liens)
+    color: var(--couleur-liens);
 }
 
 a:focus {
-    color :var(--couleur-liens)
+    color: var(--couleur-liens);
 }
 
 a:hover {
-    color :var(--couleur-liens)
+    color: var(--couleur-liens);
 }
 
 a:active {
-    color :var(--couleur-liens)
+    color: var(--couleur-liens);
 }
 
-footer
-{
-    font-size: x-small  ;
+footer {
+    font-size: x-small;
 }
 
-footer .logo_social_media
-{
+footer .logo_social_media {
     height: 10px;
     width: auto;
     padding-left: 1px;
