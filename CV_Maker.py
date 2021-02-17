@@ -1,6 +1,8 @@
 import os
 import pdfkit
 from weasyprint import HTML, CSS
+import mdpdf.cli as cli
+from click.testing  import CliRunner, Result
 
 def titre_to_nom_de_fichier(titre:str):
     titre = titre.replace(" ", "_")
@@ -98,15 +100,18 @@ class Item:
         return res
 
     def to_markdown(self):
-        res = f"""## {self.titre}\n\n"""
-        res += f"""### {self.organisme} """
+        res = ""
+        if self.titre:
+            res += f"""## {self.titre}\n\n"""
+        if self.organisme:
+            res += f"""### {self.organisme} """
         if self.date_debut:
             if self.date_fin:
                 res += f"""{self.date_debut} - {self.date_fin}\n\n"""
             else:
                 res += f"""{self.date_debut} \n\n"""
-            
-        res += f"""{self.description}\n\n"""
+        desc = self.description.replace("<br/>", "\n\n")
+        res += f"""{desc}\n\n"""
         if self.url:   
             res += f"""[{self.url}]({self.url})\n\n"""
 
@@ -351,11 +356,25 @@ def mainloop(cv:CV, lieu='main', no_sec=-1, no_it=-1, new=False,modify=False):
                 cv.to_markdown()
 
             elif key[0].lower() == 'r':
+                if os.path.exists("CV.pdf"):
+                    os.remove("CV.pdf")
+                if os.path.exists("CV2.pdf"):
+                    os.remove("CV2.pdf")
+                
                 cv.to_html()
                 options = {"enable-local-file-access": ""}
                 pdfkit.from_file('CV.html', 'CV.pdf', options=options)
                 HTML('CV.html').write_pdf('CV2.pdf')
-    
+
+                cv.to_markdown()
+                
+                if os.path.exists("CV_md.pdf"):
+                    os.remove("CV_md.pdf")
+                runner = CliRunner()
+                Result = runner.invoke(cli.cli, ["-o", "CV_md.pdf", "CV_md.md"])
+                
+
+
     elif lieu == 'section':
         if not modify:
             while True :
