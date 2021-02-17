@@ -4,7 +4,7 @@
 ![Lines of code](https://img.shields.io/tokei/lines/github.com/LouisJustinTALLOT/CV_Maker?label=Lignes%20de%20code)
 ![GitHub issues](https://img.shields.io/github/issues-raw/LouisJustinTALLOT/CV_Maker?color=critical)
 ![GitHub closed issues](https://img.shields.io/github/issues-closed-raw/LouisJustinTALLOT/CV_Maker?color=success)
-![GitHub release (latest by date)](https://img.shields.io/github/v/release/LouisJustinTALLOT/CV_Maker?color=gold&label=Last%20release&logo=github)
+[![GitHub release (latest by date)](https://img.shields.io/github/v/release/LouisJustinTALLOT/CV_Maker?color=gold&label=Last%20release&logo=github)](https://github.com/LouisJustinTALLOT/CV_Maker/releases/latest)
 
 Ce projet a pour but de construire un CV en utilisant les technologies suivantes :
 - `Python` pour les scripts
