@@ -3,7 +3,7 @@ body
     background-color: white;
     color : black;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    width: 21cm;
+    /* width: 21cm; */
     padding: 0;
     margin:1cm;
 }
@@ -19,7 +19,7 @@ body
 {
     --couleur-texte-header : rgb(6, 6, 90);
     --couleur-liens: var(--couleur-texte-header);
-    --largeur-descriptions : 18cm;
+    --largeur-descriptions : 87.5%;
 }
 
 header
@@ -28,7 +28,7 @@ header
     color : var(--couleur-texte-header) ;
     /* margin-bottom: 1em;   */
     display: block;
-    width : 21cm;
+    /* width : 21cm !important; */
     /* margin-top: -1cm; */
     /* padding: -1cm; */
 }
@@ -91,6 +91,7 @@ header
 
 .organisme_item 
 {
+    page-break-after: avoid;
     padding: 0;
     margin: 0;
     margin-right: 1cm;
@@ -100,6 +101,7 @@ header
 
 .dates_item
 {
+    page-break-after: avoid;
     padding: 0;
     margin: 0;
     /* font-variant: all-small-caps; */
@@ -115,6 +117,7 @@ header
 
 .titre_item
 {
+    page-break-after: avoid;
     margin: 0;
     font-weight: 500;
 }
@@ -127,8 +130,9 @@ header
 
 .description_et_logo_item
 {
+    page-break-inside: avoid;
     display : flex;
-    width : 21cm;
+    /* width : 21cm; */
     /* border: 1px solid salmon; */
     align-items: center;
 }
@@ -150,8 +154,8 @@ header
 
 .logo_item
 {
-    width: 1cm;
-    height: auto;
+    max-height: 1.5cm;
+    max-width: 3cm;
     /* border: 1px solid red; */
 }
 
