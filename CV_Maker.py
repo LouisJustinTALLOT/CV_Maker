@@ -97,6 +97,21 @@ class Item:
         res += """    </div>\n"""
         return res
 
+    def to_markdown(self):
+        res = f"""## {self.titre}\n\n"""
+        res += f"""### {self.organisme} """
+        if self.date_debut:
+            if self.date_fin:
+                res += f"""{self.date_debut} - {self.date_fin}\n\n"""
+            else:
+                res += f"""{self.date_debut} \n\n"""
+            
+        res += f"""{self.description}\n\n"""
+        if self.url:   
+            res += f"""[{self.url}]({self.url})\n\n"""
+
+        return res
+
 class Section:
     
     def __init__(self):
@@ -132,6 +147,16 @@ class Section:
         for it in self.liste_items :
             if not it.ignore :
                 res += it.to_html()
+        return res
+
+    def to_markdown(self):
+        res = f"# {self.nom}\n\n"
+
+        it:Item
+        for it in self.liste_items :
+            if not it.ignore :
+                res += it.to_markdown()
+
         return res
 
 class CV:
@@ -245,6 +270,25 @@ class CV:
         res += "</footer>\n"
         return res
 
+    def markdown_header(self):
+        res = f"# {self.qui_je_suis['nom']}\n\n"
+        res += f"## Né le {self.qui_je_suis['date_naissance']}\n\n"
+        res += f"""Mail : [{self.qui_je_suis['mail']}      ](mailto:{self.qui_je_suis['mail']}) | """
+        res += f"""Linkedin : [{self.qui_je_suis['linkedin']}  ]({self.qui_je_suis['linkedin']}) | """
+        res += f"""Github : [{self.qui_je_suis['nom_github']}]({self.qui_je_suis['github']})\n\n"""
+        res += f"""\n\n{self.qui_je_suis['motto']}\n\n"""
+        res += "-------------------------------------------\n\n"
+        
+        return res
+
+    def markdown_footer(self):
+        res = "-------------------------------------------\n"
+        res += """Ce CV est le produit du projet """
+        res += f"""[LouisJustinTALLOT/CV_Maker](https://github.com/LouisJustinTALLOT/CV_Maker)"""
+        res += """ utilisant le pack d'icônes gratuit [Streamline](https://streamlineicons.com/)."""
+        
+        return res
+
     def to_html(self, style_CV='full'):
         with open("CV.html", 'w', encoding='utf8') as file:
             file.write(html_head())
@@ -265,6 +309,18 @@ class CV:
             file.write("</div>\n")
             file.write(self.html_footer())
             file.write("</body>\n</html>")
+
+    def to_markdown(self, style_CV='full'):
+        with open("CV_md.md", 'w', encoding='utf8') as file:
+            file.write(self.markdown_header())
+            self.liste_sections.sort(key=lambda x: x.numero)
+            sec:Section
+            for sec in self.liste_sections:
+                if not sec.ignore:
+                    file.write(sec.to_markdown())
+
+            file.write(self.markdown_footer())  
+
 
 def mainloop(cv:CV, lieu='main', no_sec=-1, no_it=-1, new=False,modify=False):
     if lieu ==  'main':
@@ -292,6 +348,8 @@ def mainloop(cv:CV, lieu='main', no_sec=-1, no_it=-1, new=False,modify=False):
                         break
             elif key[0].lower() == 'p':
                 cv.to_html()
+                cv.to_markdown()
+
             elif key[0].lower() == 'r':
                 cv.to_html()
                 options = {"enable-local-file-access": ""}
