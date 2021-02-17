@@ -75,7 +75,8 @@ class Item:
         return f"Item {self.titre}"
 
     def to_html(self):   # à modifier pour changer ce qu'on affiche
-        res = f"""    <h2 class="titre_item">{self.titre}</h2>\n"""
+        res = """<div class="titre_et_org_item">\n"""
+        res += f"""    <h2 class="titre_item">{self.titre}</h2>\n"""
         res += f"""    <h3 class="organisme_item">{self.organisme}</h3>\n"""
         if self.date_debut:
             if not self.organisme:
@@ -88,15 +89,19 @@ class Item:
                     res += f"""    <h3 class="dates_item dates_et_org">{self.date_debut} - {self.date_fin}</h3>\n"""
                 else:
                     res += f"""    <h3 class="dates_item dates_et_org">{self.date_debut} </h3>\n"""
+        res += """</div>\n"""
                     
-        res += """    <div class="description_et_logo_item">\n"""
+        res += """<div class="description_et_url_item">\n"""
         res += f"""    <p class="description_item">{self.description}\n"""
         if self.url:   
             res += f"""    <br /><a class="url_item" href="{self.url}" target="_blank">{self.url}</a>"""
         res += """    </p>\n"""
+        res += """</div>\n"""
+        
+        res += """<div class="div_logo_item">\n"""
         if self.logo:
             res += f"""   <div class="conteneur_logo_item"> <img src="images/{self.logo}" class="logo_item" /></div>\n"""
-        res += """    </div>\n"""
+        res += """</div>\n"""
         return res
 
     def to_markdown(self):
@@ -151,7 +156,9 @@ class Section:
         it:Item
         for it in self.liste_items :
             if not it.ignore :
+                res += """<div class="item">\n"""
                 res += it.to_html()
+                res += """</div>\n"""
         return res
 
     def to_markdown(self):
