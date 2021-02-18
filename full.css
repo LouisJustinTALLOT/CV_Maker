@@ -1,6 +1,6 @@
 * {
   /* uniquement pour le développement */
-  border: 1px solid red;
+  /* border: 1px solid red; */
 }
 /* (id|class)="[A-Za-z_1-9]*" */
 
@@ -11,6 +11,7 @@ body {
   /* width: 21cm; */
   padding: 0;
   margin: 1cm;
+  font-size: 12pt;
 }
 
 :root {
@@ -44,7 +45,7 @@ header #header_sauf_photo {
 }
 
 header #header_nom {
-  font-size: 3em;
+  font-size: 22pt;
   /* text-align: right; */
 }
 
@@ -64,14 +65,15 @@ header .logo_social_media {
 }
 
 #toutes_les_sections h1 {
-  border-bottom: 1px solid black;
+  /* border-bottom: 1px solid black; */
   margin-bottom: 0.3cm;
+  font-size: 1.8em;
 }
 
-/* #toutes_les_sections h2
-{
-    font-weight:500;
-} */
+#toutes_les_sections h2 {
+  font-weight: 500;
+  font-size: 1.4em;
+}
 
 #toutes_les_sections p {
   font-weight: 350;
@@ -80,33 +82,42 @@ header .logo_social_media {
 #toutes_les_sections .item {
   /* border: 1px solid yellow; */
   display: grid;
+  grid-template-columns: 85% 15%;
   grid-template-areas:
     "titre_org logo"
     "description_url .";
+  border-top: 1px solid #999999;
+  padding-top: 3px;
 }
 
 .item .titre_et_org_item {
-    grid-area: titre_org;
-    background-color: yellow;
+  grid-area: titre_org;
+  /* background-color: yellow; */
+  /* border-top: 1px solid #999999; */
+}
+
+.item .div_org_dates {
+  display: flex;
+  justify-content: space-between;
 }
 
 .item .div_logo_item {
-    grid-area: logo;
-    background-color: turquoise;
+  grid-area: logo;
+  /* background-color: turquoise; */
+  /* border-top: 1px solid #999999; */
 }
 
 .item .description_et_url_item {
-    grid-area: description_url;
-    background-color: yellowgreen;
+  grid-area: description_url;
+  page-break-inside: avoid !important;
+  /* background-color: yellowgreen; */
 }
-
-
 
 .organisme_item {
   /* page-break-after: avoid; */
   padding: 0;
   margin: 0;
-  margin-right: 1cm;
+  /* margin-right: 1cm; */
   font-weight: 400;
   display: inline;
 }
@@ -121,12 +132,12 @@ header .logo_social_media {
   display: inline;
 }
 
-.dates_et_org {
-  margin-left: 1cm;
-}
+/* .dates_et_org {
+    margin-left: 1cm;
+} */
 
 .titre_item {
-  page-break-after: avoid;
+  /* page-break-after: avoid; */
   margin: 0;
   font-weight: 500;
 }
@@ -137,7 +148,7 @@ header .logo_social_media {
 }
 
 .description_et_logo_item {
-  page-break-inside: avoid;
+  /* page-break-inside: avoid; */
   display: flex;
   /* width : 21cm; */
   /* border: 1px solid salmon; */
@@ -145,15 +156,16 @@ header .logo_social_media {
 }
 
 .description_item {
-  width: var(--largeur-descriptions);
+  /* width: var(--largeur-descriptions); */
   /* border : 1px solid blue; */
   margin-top: 1ex;
   text-align: justify;
+  font-size: 12pt;
 }
 
 .conteneur_logo_item {
   /* border : 1px solid green; */
-  width: calc(100% - var(--largeur-descriptions));
+  /* width: calc(100% - var(--largeur-descriptions)); */
   text-align: center;
 }
 
