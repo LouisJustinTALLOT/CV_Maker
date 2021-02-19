@@ -75,7 +75,8 @@ class Item:
         return f"Item {self.titre}"
 
     def to_html(self):   # à modifier pour changer ce qu'on affiche
-        res = """<div class="titre_et_org_item">\n"""
+        res = """<div class="titre_org_logo">\n"""
+        res += """<div class="titre_et_org_item">\n"""
         res += f"""    <h2 class="titre_item">{self.titre}</h2>\n"""
         res += """     <div class="div_org_dates">\n """
         res += f"""      <h3 class="organisme_item">{self.organisme}</h3>\n"""
@@ -92,6 +93,12 @@ class Item:
                     res += f"""      <h3 class="dates_item">{self.date_debut} </h3>\n"""
         res += """    </div>\n"""
         res += """</div>\n"""
+        res += """<div class="div_logo_item">\n"""
+        if self.logo:
+            res += f"""   <div class="conteneur_logo_item"> <img src="images/{self.logo}" class="logo_item" /></div>\n"""
+        res += """</div>\n"""
+        res += """</div>\n"""
+
                     
         res += """<div class="description_et_url_item">\n"""
         res += f"""    <p class="description_item">{self.description}\n"""
@@ -100,10 +107,7 @@ class Item:
         res += """    </p>\n"""
         res += """</div>\n"""
         
-        res += """<div class="div_logo_item">\n"""
-        if self.logo:
-            res += f"""   <div class="conteneur_logo_item"> <img src="images/{self.logo}" class="logo_item" /></div>\n"""
-        res += """</div>\n"""
+        
         return res
 
     def to_markdown(self):

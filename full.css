@@ -81,17 +81,24 @@ header .logo_social_media {
 
 #toutes_les_sections .item {
   /* border: 1px solid yellow; */
-  display: grid;
+  /* display: grid;
   grid-template-columns: 85% 15%;
   grid-template-areas:
     "titre_org logo"
-    "description_url .";
+    "description_url .";*/
   border-top: 1px solid #999999;
   padding-top: 3px;
 }
 
+.item .titre_org_logo {
+  display: flex;
+  justify-content: space-between;
+}
+
 .item .titre_et_org_item {
-  grid-area: titre_org;
+  display: inline-block;
+  width: 70%;
+  /* grid-area: titre_org; */
   /* background-color: yellow; */
   /* border-top: 1px solid #999999; */
 }
@@ -102,13 +109,14 @@ header .logo_social_media {
 }
 
 .item .div_logo_item {
-  grid-area: logo;
+  display: inline-block;
+  /* grid-area: logo; */
   /* background-color: turquoise; */
   /* border-top: 1px solid #999999; */
 }
 
 .item .description_et_url_item {
-  grid-area: description_url;
+  /* grid-area: description_url; */
   page-break-inside: avoid !important;
   /* background-color: yellowgreen; */
 }
