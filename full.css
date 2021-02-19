@@ -10,7 +10,7 @@ body {
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     /* width: 21cm; */
     padding: 0;
-    margin: 1cm;
+    /* margin: 1cm  !important; */
     font-size: 12pt;
 }
 
@@ -93,6 +93,7 @@ header .logo_social_media {
     "description_url .";*/
     border-top: 1px solid #999999;
     padding-top: 3px;
+    page-break-inside: avoid;
 }
 
 .item .titre_org_logo {
@@ -140,8 +141,8 @@ header .logo_social_media {
     padding: 0;
     margin: 0;
     /* font-variant: all-small-caps; */
-    text-transform: uppercase;
-    font-weight: 350;
+    /* text-transform: uppercase; */
+    font-weight: 300;
     display: inline;
 }
 
