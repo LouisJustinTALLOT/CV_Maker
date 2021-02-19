@@ -10,8 +10,9 @@ body {
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     /* width: 21cm; */
     padding: 0;
+    margin:0;
     /* margin: 1cm  !important; */
-    font-size: 12pt;
+    font-size: 10pt;
 }
 
 :root {
@@ -34,20 +35,32 @@ header {
     display: flex;
     align-content: space-between;
 }
-
-header #profile_picture {
-    height: 200px;
-    width: auto;
-    display: inline-block;
+.header_picture {
+    display : inline-block;
     padding-left: 1em;
     padding-right: 1em;
-    padding-top: 0;
-    margin-top: 0.3cm;
+    /* padding-top: 0; */
+    padding-top: 0.3cm;
+    border: 1px solid green;
 }
 
 .header_sauf_photo {
     display: inline-block;
+    border: 1px solid red;
+    width : 70%;
 }
+
+header #profile_picture {
+    height: 200px;
+    width: auto;
+    /* display: inline-block; */
+    /* padding-left: 1em;
+    padding-right: 1em;
+    padding-top: 0;
+    margin-top: 0.3cm; */
+} 
+
+
 
 header #header_nom {
     font-size: 22pt;
@@ -63,25 +76,25 @@ header .logo_social_media {
 /* peut-être pas utile : */
 #toutes_les_sections {
     /* margin-top: 3cm; */
-    display: block;
-    clear: both;
-    float: bottom;
+    /* display: block; */
+    /* clear: both; */
+    /* float: bottom; */
     margin: 0;
 }
 
 #toutes_les_sections h1 {
     /* border-bottom: 1px solid black; */
     margin-bottom: 0.3cm;
-    font-size: 1.8em;
+    font-size: 18pt;
 }
 
 #toutes_les_sections h2 {
     font-weight: 500;
-    font-size: 1.4em;
+    font-size: 15pt;
 }
 
 #toutes_les_sections p {
-    font-weight: 350;
+    font-weight: normal;
 }
 
 #toutes_les_sections .item {
@@ -103,7 +116,7 @@ header .logo_social_media {
 
 .item .titre_et_org_item {
     display: inline-block;
-    width: 70%;
+    width: 80%;
     /* grid-area: titre_org; */
     /* background-color: yellow; */
     /* border-top: 1px solid #999999; */
@@ -174,7 +187,7 @@ header .logo_social_media {
     /* border : 1px solid blue; */
     margin-top: 1ex;
     text-align: justify;
-    font-size: 12pt;
+    font-size: 10pt;
 }
 
 .conteneur_logo_item {

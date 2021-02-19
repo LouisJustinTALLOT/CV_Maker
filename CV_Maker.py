@@ -273,8 +273,8 @@ class CV:
             res += f"""    <h1 id="header_nom">{self.qui_je_suis['nom']} </h1>\n"""
             res += f"""    <h2>Né le {self.qui_je_suis['date_naissance']}</h2>\n"""
             res += f"""    <img src="images/logo_mail.png" class="logo_social_media"/> <a href="mailto:{self.qui_je_suis['mail']}" target="_blank">{self.qui_je_suis['mail']}</a>\n"""
-            res += f"""    <img src="images/logo_linkedin.png" class="logo_social_media"/> <a href="{self.qui_je_suis['linkedin']}" target="_blank">{self.qui_je_suis['linkedin']}</a>\n"""
             res += f"""    <img src="images/logo_github.png" class="logo_social_media"/> <a href="{self.qui_je_suis['github']}" target="_blank">{self.qui_je_suis['nom_github']}</a>\n"""
+            res += f"""    <br />\n    <img src="images/logo_linkedin.png" class="logo_social_media"/> <a href="{self.qui_je_suis['linkedin']}" target="_blank">{self.qui_je_suis['linkedin']}</a>\n"""
             res += f"""    <p>{self.qui_je_suis['motto']}</p>\n"""
             res += """  </div>\n"""
             res += """ </div>\n"""
@@ -316,7 +316,7 @@ class CV:
             file.write(html_head())
             file.write("<body>\n")
             file.write("""<div id="main">\n""")
-            file.write(self.html_header("photo_elmo.jpg"))
+            file.write(self.html_header("photo_lj.jpg"))
             file.write("""<section id="toutes_les_sections">\n""")
             
             self.liste_sections.sort(key=lambda x: x.numero)
