@@ -24,10 +24,15 @@ header {
     background-color: rgba(114, 114, 114, 0.226);
     color: var(--couleur-texte-header);
     /* margin-bottom: 1em;   */
-    display: block;
+    /* display: block; */
     /* width : 21cm !important; */
     /* margin-top: -1cm; */
     /* padding: -1cm; */
+}
+
+.header_profile {
+    display: flex;
+    align-content: space-between;
 }
 
 header #profile_picture {
@@ -40,7 +45,7 @@ header #profile_picture {
     margin-top: 0.3cm;
 }
 
-header #header_sauf_photo {
+.header_sauf_photo {
     display: inline-block;
 }
 
