@@ -10,9 +10,15 @@ body {
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     /* width: 21cm; */
     padding: 0;
-    margin:0;
-    /* margin: 1cm  !important; */
+    margin: 0;
+    margin: 1cm !important;
     font-size: 10pt;
+}
+
+@media print {
+    body {
+        margin: -0.5cm !important;
+    }
 }
 
 :root {
@@ -22,7 +28,8 @@ body {
 }
 
 header {
-    background-color: rgba(114, 114, 114, 0.226);
+    background-color: rgba(36, 37, 100, 0.493);
+    /* background-color: rgba(114, 114, 114, 0.226); */
     color: var(--couleur-texte-header);
     /* margin-bottom: 1em;   */
     /* display: block; */
@@ -36,18 +43,18 @@ header {
     align-content: space-between;
 }
 .header_picture {
-    display : inline-block;
+    display: inline-block;
     padding-left: 1em;
     padding-right: 1em;
     /* padding-top: 0; */
     padding-top: 0.3cm;
-    border: 1px solid green;
+    /* border: 1px solid green; */
 }
 
 .header_sauf_photo {
     display: inline-block;
-    border: 1px solid red;
-    width : 70%;
+    /* border: 1px solid red; */
+    width: 70%;
 }
 
 header #profile_picture {
@@ -58,9 +65,7 @@ header #profile_picture {
     padding-right: 1em;
     padding-top: 0;
     margin-top: 0.3cm; */
-} 
-
-
+}
 
 header #header_nom {
     font-size: 22pt;
@@ -71,6 +76,14 @@ header .logo_social_media {
     height: 14px;
     width: auto;
     margin-bottom: -2px; /* pour aligner avec le texte*/
+}
+
+header h2 {
+    font-size: 13pt;
+}
+
+header p {
+    text-align: justify;
 }
 
 /* peut-être pas utile : */
