@@ -28,48 +28,37 @@ body {
 }
 
 header {
-    background-color: rgba(36, 37, 100, 0.493);
-    /* background-color: rgba(114, 114, 114, 0.226); */
+    /* background-color: #b5b5b5; */
+    background-color: rgba(114, 114, 114, 0.226);
     color: var(--couleur-texte-header);
-    /* margin-bottom: 1em;   */
-    /* display: block; */
-    /* width : 21cm !important; */
-    /* margin-top: -1cm; */
-    /* padding: -1cm; */
 }
 
 .header_profile {
     display: flex;
     align-content: space-between;
+    padding: 0;
 }
+
 .header_picture {
     display: inline-block;
     padding-left: 1em;
     padding-right: 1em;
-    /* padding-top: 0; */
     padding-top: 0.3cm;
-    /* border: 1px solid green; */
+    padding-bottom: 0.3cm;
 }
 
 .header_sauf_photo {
     display: inline-block;
-    /* border: 1px solid red; */
     width: 70%;
 }
 
 header #profile_picture {
     height: 200px;
     width: auto;
-    /* display: inline-block; */
-    /* padding-left: 1em;
-    padding-right: 1em;
-    padding-top: 0;
-    margin-top: 0.3cm; */
 }
 
 header #header_nom {
     font-size: 22pt;
-    /* text-align: right; */
 }
 
 header .logo_social_media {
@@ -86,17 +75,11 @@ header p {
     text-align: justify;
 }
 
-/* peut-être pas utile : */
 #toutes_les_sections {
-    /* margin-top: 3cm; */
-    /* display: block; */
-    /* clear: both; */
-    /* float: bottom; */
     margin: 0;
 }
 
 #toutes_les_sections h1 {
-    /* border-bottom: 1px solid black; */
     margin-bottom: 0.3cm;
     font-size: 18pt;
 }
@@ -111,12 +94,6 @@ header p {
 }
 
 #toutes_les_sections .item {
-    /* border: 1px solid yellow; */
-    /* display: grid;
-  grid-template-columns: 85% 15%;
-  grid-template-areas:
-    "titre_org logo"
-    "description_url .";*/
     border-top: 1px solid #999999;
     padding-top: 3px;
     page-break-inside: avoid;
@@ -130,9 +107,6 @@ header p {
 .item .titre_et_org_item {
     display: inline-block;
     width: 80%;
-    /* grid-area: titre_org; */
-    /* background-color: yellow; */
-    /* border-top: 1px solid #999999; */
 }
 
 .item .div_org_dates {
@@ -142,42 +116,28 @@ header p {
 
 .item .div_logo_item {
     display: inline-block;
-    /* grid-area: logo; */
-    /* background-color: turquoise; */
-    /* border-top: 1px solid #999999; */
 }
 
 .item .description_et_url_item {
-    /* grid-area: description_url; */
     page-break-inside: avoid !important;
-    /* background-color: yellowgreen; */
 }
 
 .organisme_item {
-    /* page-break-after: avoid; */
     padding: 0;
     margin: 0;
-    /* margin-right: 1cm; */
     font-weight: 400;
     display: inline;
 }
 
 .dates_item {
-    /* page-break-after: avoid; */
     padding: 0;
     margin: 0;
-    /* font-variant: all-small-caps; */
-    /* text-transform: uppercase; */
     font-weight: 300;
     display: inline;
 }
 
-/* .dates_et_org {
-    margin-left: 1cm;
-} */
 
 .titre_item {
-    /* page-break-after: avoid; */
     margin: 0;
     font-weight: 500;
 }
@@ -188,31 +148,23 @@ header p {
 }
 
 .description_et_logo_item {
-    /* page-break-inside: avoid; */
     display: flex;
-    /* width : 21cm; */
-    /* border: 1px solid salmon; */
     align-items: center;
 }
 
 .description_item {
-    /* width: var(--largeur-descriptions); */
-    /* border : 1px solid blue; */
     margin-top: 1ex;
     text-align: justify;
     font-size: 10pt;
 }
 
 .conteneur_logo_item {
-    /* border : 1px solid green; */
-    /* width: calc(100% - var(--largeur-descriptions)); */
     text-align: center;
 }
 
 .logo_item {
     max-height: 1.5cm;
     max-width: 3cm;
-    /* border: 1px solid red; */
 }
 
 a:link {
