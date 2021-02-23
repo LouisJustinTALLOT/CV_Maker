@@ -312,25 +312,26 @@ class CV:
         return res
 
     def to_html(self, style_CV='full'):
-        with open("CV.html", 'w', encoding='utf8') as file:
-            file.write(html_head())
-            file.write("<body>\n")
-            file.write("""<div id="main">\n""")
-            file.write(self.html_header("photo_lj.jpg"))
-            file.write("""<section id="toutes_les_sections">\n""")
-            
-            self.liste_sections.sort(key=lambda x: x.numero)
-            sec:Section
-            for sec in self.liste_sections:
-                if not sec.ignore:
-                    file.write(f"""<section id="{titre_to_nom_de_fichier(sec.nom)}"> \n""")
-                    file.write(sec.to_html())
-                    file.write(f"""</section> \n""")
+        if style_CV == 'full' :
+            with open("CV_full.html", 'w', encoding='utf8') as file:
+                file.write(html_head())
+                file.write("<body>\n")
+                file.write("""<div id="main">\n""")
+                file.write(self.html_header("photo_lj.jpg"))
+                file.write("""<section id="toutes_les_sections">\n""")
+                
+                self.liste_sections.sort(key=lambda x: x.numero)
+                sec:Section
+                for sec in self.liste_sections:
+                    if not sec.ignore:
+                        file.write(f"""<section id="{titre_to_nom_de_fichier(sec.nom)}"> \n""")
+                        file.write(sec.to_html())
+                        file.write(f"""</section> \n""")
 
-            file.write("</section>\n")
-            file.write("</div>\n")
-            file.write(self.html_footer())
-            file.write("</body>\n</html>")
+                file.write("</section>\n")
+                file.write("</div>\n")
+                file.write(self.html_footer())
+                file.write("</body>\n</html>")
 
     def to_markdown(self, style_CV='full'):
         with open("CV_md.md", 'w', encoding='utf8') as file:
@@ -373,15 +374,12 @@ def mainloop(cv:CV, lieu='main', no_sec=-1, no_it=-1, new=False,modify=False):
                 cv.to_markdown()
 
             elif key[0].lower() == 'r':
-                if os.path.exists("CV.pdf"):
-                    os.remove("CV.pdf")
-                if os.path.exists("CV2.pdf"):
-                    os.remove("CV2.pdf")
+                if os.path.exists("CV_full.pdf"):
+                    os.remove("CV_full.pdf")
                 
                 cv.to_html()
-                options = {"enable-local-file-access": ""}
-                pdfkit.from_file('CV.html', 'CV.pdf', options=options)
-                HTML('CV.html').write_pdf('CV2.pdf')
+
+                HTML('CV_full.html').write_pdf('CV_full.pdf')
 
                 cv.to_markdown()
                 
