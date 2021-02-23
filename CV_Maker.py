@@ -385,8 +385,9 @@ def mainloop(cv:CV, lieu='main', no_sec=-1, no_it=-1, new=False,modify=False):
                 
                 if os.path.exists("CV_md.pdf"):
                     os.remove("CV_md.pdf")
+
                 runner = CliRunner()
-                Result = runner.invoke(cli.cli, ["-o", "CV_md.pdf", "CV_md.md"])
+                runner.invoke(cli.cli, ["-o", "CV_md.pdf", "CV_md.md"])
                 
 
 
