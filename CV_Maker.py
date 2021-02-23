@@ -280,7 +280,7 @@ class CV:
             res += """ </div>\n"""
             res += "</header>\n"
             return res
-        elif style_CV == 'onepager':
+        elif style_CV == 'onepage':
             return self.html_header(nom_image) # à changer pour les autres styles
         return self.html_header(nom_image)
 
@@ -311,27 +311,50 @@ class CV:
         
         return res
 
-    def to_html(self, style_CV='full'):
-        if style_CV == 'full' :
-            with open("CV_full.html", 'w', encoding='utf8') as file:
-                file.write(html_head())
-                file.write("<body>\n")
-                file.write("""<div id="main">\n""")
-                file.write(self.html_header("photo_lj.jpg"))
-                file.write("""<section id="toutes_les_sections">\n""")
-                
-                self.liste_sections.sort(key=lambda x: x.numero)
-                sec:Section
-                for sec in self.liste_sections:
-                    if not sec.ignore:
-                        file.write(f"""<section id="{titre_to_nom_de_fichier(sec.nom)}"> \n""")
-                        file.write(sec.to_html())
-                        file.write(f"""</section> \n""")
+    def to_html(self):
+        # on fait d'abord le format full
+        with open("CV_full.html", 'w', encoding='utf8') as file:
+            file.write(html_head())
+            file.write("<body>\n")
+            file.write("""<div id="main">\n""")
+            file.write(self.html_header("photo_lj.jpg"))
+            file.write("""<section id="toutes_les_sections">\n""")
+            
+            self.liste_sections.sort(key=lambda x: x.numero)
+            sec:Section
+            for sec in self.liste_sections:
+                if not sec.ignore:
+                    file.write(f"""<section id="{titre_to_nom_de_fichier(sec.nom)}"> \n""")
+                    file.write(sec.to_html())
+                    file.write(f"""</section> \n""")
 
-                file.write("</section>\n")
-                file.write("</div>\n")
-                file.write(self.html_footer())
-                file.write("</body>\n</html>")
+            file.write("</section>\n")
+            file.write("</div>\n")
+            file.write(self.html_footer())
+            file.write("</body>\n</html>")
+
+        # puis le format onepage
+        with open("CV_onepage.html", 'w', encoding='utf8') as file:
+            file.write("<html><head></head><body>Test de format une page</body></html>")
+            # file.write(html_head())
+            # file.write("<body>\n")
+            # file.write("""<div id="main">\n""")
+            # file.write(self.html_header("photo_lj.jpg"))
+            # file.write("""<section id="toutes_les_sections">\n""")
+            
+            # self.liste_sections.sort(key=lambda x: x.numero)
+            # sec:Section
+            # for sec in self.liste_sections:
+            #     if not sec.ignore:
+            #         file.write(f"""<section id="{titre_to_nom_de_fichier(sec.nom)}"> \n""")
+            #         file.write(sec.to_html())
+            #         file.write(f"""</section> \n""")
+
+            # file.write("</section>\n")
+            # file.write("</div>\n")
+            # file.write(self.html_footer())
+            # file.write("</body>\n</html>")
+
 
     def to_markdown(self, style_CV='full'):
         with open("CV_md.md", 'w', encoding='utf8') as file:
@@ -376,10 +399,14 @@ def mainloop(cv:CV, lieu='main', no_sec=-1, no_it=-1, new=False,modify=False):
             elif key[0].lower() == 'r':
                 if os.path.exists("CV_full.pdf"):
                     os.remove("CV_full.pdf")
-                
+
+                if os.path.exists("CV_onepage.pdf"):
+                    os.remove("CV_onepage.pdf")
+
                 cv.to_html()
 
                 HTML('CV_full.html').write_pdf('CV_full.pdf')
+                HTML('CV_onepage.html').write_pdf('CV_onepage.pdf')
 
                 cv.to_markdown()
                 
