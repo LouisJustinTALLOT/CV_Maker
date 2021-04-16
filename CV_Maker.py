@@ -335,9 +335,8 @@ class CV:
 
         # puis le format onepage
         with open("CV_onepage.html", 'w', encoding='utf8') as file:
-            file.write("<html><head></head><body>Test de format une page</body></html>")
-            # file.write(html_head())
-            # file.write("<body>\n")
+            file.write(html_head(titre='CV_onepage', style_CV='onepage'))
+            file.write("<body>\n")
             # file.write("""<div id="main">\n""")
             # file.write(self.html_header("photo_lj.jpg"))
             # file.write("""<section id="toutes_les_sections">\n""")
@@ -353,7 +352,7 @@ class CV:
             # file.write("</section>\n")
             # file.write("</div>\n")
             # file.write(self.html_footer())
-            # file.write("</body>\n</html>")
+            file.write("</body>\n</html>")
 
 
     def to_markdown(self, style_CV='full'):
