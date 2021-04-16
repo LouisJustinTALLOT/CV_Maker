@@ -314,7 +314,7 @@ class CV:
     def to_html(self):
         # on fait d'abord le format full
         with open("CV_full.html", 'w', encoding='utf8') as file:
-            file.write(html_head())
+            file.write(html_head(titre='CV_full', style_CV='full'))
             file.write("<body>\n")
             file.write("""<div id="main">\n""")
             file.write(self.html_header("photo_lj.jpg"))
