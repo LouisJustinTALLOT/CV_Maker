@@ -239,14 +239,14 @@ class CV:
                 with open(f"sections/{fichier}",'r',encoding='utf8') as file:
                     lignes_fichier = file.readlines()
                 sec = Section()
-                ligne_titre = lignes_fichier[0][:-1]
+                ligne_titre = lignes_fichier[1][:-1]
                 sec.nom, sec.ignore, sec.type, sec.numero = ligne_titre.split(";")[:4]
                 sec.numero = int(sec.numero)
                 if sec.ignore == 'True':
                     sec.ignore = True
                 else: 
                     sec.ignore = False
-                for ligne_it in lignes_fichier[2:]:
+                for ligne_it in lignes_fichier[3:]:
                         if ligne_it and len(ligne_it)>1:
                             # on parcourt les items de la section
                             ligne_it = ligne_it[:-1]
