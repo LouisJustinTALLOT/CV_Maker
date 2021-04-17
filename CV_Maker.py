@@ -209,6 +209,7 @@ class CV:
         for sec in self.liste_sections :
             
             with open(f"sections/{titre_to_nom_de_fichier(sec.nom)}.csv", 'w', encoding='utf8') as file :
+                file.write("\n")
                 file.write(f"{sec.nom};{sec.ignore};{sec.type};{sec.numero}\n")
                 file.write("ignore;numero;titre;organisme;description;date_debut;date_fin;logo;url\n")
                 it : Item
